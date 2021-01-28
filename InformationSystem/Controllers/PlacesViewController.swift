@@ -24,6 +24,11 @@ class PlacesViewController: UIViewController {
     var studyID : String? = nil
     var semesterID : String? = nil
     var errorCounter = 0
+    var errorTitle = "Nastala chyba, skontrolujte si internetové pripojenie alebo prihlasovacie údaje!"
+    var errorMessageFirst = "Počet pokusov na pripojenie: "
+    var errorMessageLast = "Tlačidlom zrušiť zavriete aplikáciu!"
+    var cancelString = "Zrušiť"
+    var language = "sk"
     
     //    MARK: Constructors
     let network: Network = Network()
@@ -58,7 +63,7 @@ class PlacesViewController: UIViewController {
         
         DispatchQueue.global().async {
             if self.studyID != nil && self.semesterID != nil {
-                self.mainURL = "https://is.stuba.sk/auth/student/odevzdavarny.pl?studium=\(self.studyID!);obdobi=\(self.semesterID!);lang=sk"
+                self.mainURL = "https://is.stuba.sk/auth/student/odevzdavarny.pl?studium=\(self.studyID!);obdobi=\(self.semesterID!);lang=\(self.language)"
             }
             self.getTables(url: self.mainURL)
 
@@ -78,8 +83,8 @@ class PlacesViewController: UIViewController {
     func errorOccurred(errorCounter: Int, url: String) {
         if errorCounter <= 3 {
             DispatchQueue.main.async {
-                let alert = UIAlertController(title: "Nastala chyba, skontrolujte si internetové pripojenie alebo prihlasovacie údaje!", message: "Počet pokusov na pripojenie: \(3 - errorCounter). Tlačidlom zrušiť zavriete aplikáciu!", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Zrušiť", style: .destructive, handler: { action in
+                let alert = UIAlertController(title: self.errorTitle, message: self.errorMessageFirst + "\(3 - errorCounter). " + self.errorMessageLast, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: self.cancelString, style: .destructive, handler: { action in
                     exit(0)
                 }))
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { action in

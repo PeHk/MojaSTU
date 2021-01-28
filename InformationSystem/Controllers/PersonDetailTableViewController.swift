@@ -102,6 +102,12 @@ class PersonDetailTableViewController: UITableViewController {
     var errorCounter = 0
     var newEmailObject = Email()
     var folderID = String()
+    var errorTitle = "Nastala chyba, skontrolujte si internetové pripojenie alebo prihlasovacie údaje!"
+    var errorMessageFirst = "Počet pokusov na pripojenie: "
+    var errorMessageLast = "Tlačidlom zrušiť zavriete aplikáciu!"
+    var cancelString = "Zrušiť"
+    var messageSentString = "Správa bola úspešne odoslaná!"
+    var messageNotSentString = "Správa nebola odoslaná!"
     
     //    MARK: Constants
     let imageURL = "https://is.stuba.sk/auth/lide/foto.pl?id="
@@ -148,6 +154,9 @@ class PersonDetailTableViewController: UITableViewController {
         NotificationCenter.default.removeObserver(self, name: .darkModeDisabled, object: nil)
         NotificationCenter.default.removeObserver(self, name: .messageWasSent, object: nil)
         NotificationCenter.default.removeObserver(self, name: .messageWasNotSent, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .languageEnglish, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .languageSlovak, object: nil)
+        
     }
     
     //    MARK: Email in
@@ -191,8 +200,8 @@ class PersonDetailTableViewController: UITableViewController {
     func errorOccurred(errorCounter: Int, url: String, type: Int) {
         if errorCounter <= 3 {
             DispatchQueue.main.async {
-                let alert = UIAlertController(title: "Nastala chyba, skontrolujte si internetové pripojenie alebo prihlasovacie údaje!", message: "Počet pokusov na pripojenie: \(3 - errorCounter). Tlačidlom zrušiť zavriete aplikáciu!", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Zrušiť", style: .destructive, handler: { action in
+                let alert = UIAlertController(title: self.errorTitle, message: self.errorMessageFirst + "\(3 - errorCounter). " + self.errorMessageLast, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: self.cancelString, style: .destructive, handler: { action in
                     exit(0)
                 }))
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { action in
@@ -223,11 +232,8 @@ class PersonDetailTableViewController: UITableViewController {
     
     @IBAction func showErrorNotification(_ notification: Notification) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-//            self.notificationLabel.text = "Správa nebola odoslaná!"
-//            self.showPanel()
-            self.title = "Správa nebola odoslaná!"
+            self.title = self.messageNotSentString
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-//                self.hidePanel()
                 self.title = ""
             }
         }
@@ -237,12 +243,8 @@ class PersonDetailTableViewController: UITableViewController {
     @IBAction func createNewSerialCode(_ notification: Notification) {
         DispatchQueue.main.async {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-//                self.notificationLabel.text = "Správa bola úspešne odoslaná!"
-                self.title = "Správa bola úspešne odoslaná!"
-//                self.showPanel()
-//                self.notificationPanel.isHidden = false
+                self.title = self.messageSentString
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-//                    self.hidePanel()
                     self.title = ""
                 }
             }
@@ -250,26 +252,9 @@ class PersonDetailTableViewController: UITableViewController {
         }
     }
     
-//    func showPanel() {
-            
-//            notificationPanel.alpha = 0
-//            notificationPanel.isHidden = false
-//            UIView.animate(withDuration: 0.3) {
-//                self.notificationPanel.alpha = 1
-//            }
-//        }
-//
-//        func hidePanel() {
-//            UIView.animate(withDuration: 0.3, animations: {
-//                self.notificationPanel.alpha = 0
-//            }) { (finished) in
-//                self.notificationPanel.isHidden = finished
-//            }
-//        }
-//
     //    MARK: Get details of person
         func getDetails() {
-            let url = personURL + id + ";lang=sk;"
+            let url = personURL + id + ";lang=sk"
             network.getRequest(urlAsString: url, completionHandler: { success, statusCode, result in
                 if success {
                     if result != nil {

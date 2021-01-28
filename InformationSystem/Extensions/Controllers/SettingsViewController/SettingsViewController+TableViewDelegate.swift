@@ -18,7 +18,7 @@ extension SettingsViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 6
     }
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -94,6 +94,18 @@ extension SettingsViewController {
             }
         }
         else if indexPath.row == 4 {
+            let currentLanguage = UserDefaults.standard.value(forKey: "language")
+            if currentLanguage != nil {
+                if currentLanguage as! String == "EN" {
+                    UserDefaults.standard.set("SK", forKey: "language")
+                    NotificationCenter.default.post(name: .languageSlovak, object: nil)
+                } else {
+                    NotificationCenter.default.post(name: .languageEnglish, object: nil)
+                    UserDefaults.standard.set("EN", forKey: "language")
+                }
+            }
+        }
+        else if indexPath.row == 5 {
             if let url = URL(string: "https://pehk.github.io"){
                 UIApplication.shared.open(url)
             }

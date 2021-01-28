@@ -794,6 +794,7 @@ class HTMLParser: NSObject {
             guard let doc: Document = try? SwiftSoup.parse(fromHtml) else {
                 return nil}
             
+            let currentLanguage = UserDefaults.standard.value(forKey: "language")
             let tables = try doc.select("form > table > thead + tbody")
             var arrayOfTables = [PlacesTables]()
             if tables.count > 0 {
@@ -811,7 +812,11 @@ class HTMLParser: NSObject {
                         var nameOfTable = String()
                         
                         if columns.count == 11 {
-                            nameOfTable = "Kam môžem odovzdať"
+                            if currentLanguage != nil && currentLanguage as! String == "EN" {
+                                nameOfTable = "Where I can submit my papers"
+                            } else {
+                                nameOfTable = "Kam môžem odovzdať"
+                            }
                             for n in 0..<rows.count {
                                 let row = rows.get(n)
                                 let subjectColum = try row.select("tr > td:nth-child(1)")
@@ -849,7 +854,11 @@ class HTMLParser: NSObject {
                             }
                         }
                         else if columns.count == 13 {
-                            nameOfTable = "Miesta odovzdania s odovzdanými súbormi"
+                            if currentLanguage != nil && currentLanguage as! String == "EN" {
+                                nameOfTable = "Coursework submissions with submitted files"
+                            } else {
+                                nameOfTable = "Miesta odovzdania s odovzdanými súbormi"
+                            }
                             for n in 0..<rows.count {
                                 let row = rows.get(n)
                                 

@@ -40,7 +40,7 @@ extension PersonViewController {
 //    MARK: Send request
     @objc func performSearch() {
         let searchText = searchBar.text!
-        let dataBody = "_suggestKey=\(searchText)&upresneni_default=aktivni_a_preruseni,absolventi,zamestnanci,externiste&_suggestMaxItems=25&&subjekt=%32%31%30%31%30&subjekt=%32%31%30%32%30&subjekt=%32%31%30%33%30&subjekt=%32%31%30%34%30&subjekt=%32%31%30%35%30&subjekt=%32%31%30%36%30&subjekt=%32%31%30%37%30&subjekt=%32%31%39%30%30&subjekt=%32%31%39%34%30&subjekt=%32%31%39%35%30&subjekt=%32%31%39%36%30&subjekt=%32%31%39%37%30&subjekt=%32%31%39%38%30&upresneni=%61%6B%74%69%76%6E%69%5F%61%5F%70%72%65%72%75%73%65%6E%69&upresneni=%7A%61%6D%65%73%74%6E%61%6E%63%69&vzorek=&_suggestHandler=lide&lang=sk"
+        let dataBody = "_suggestKey=\(searchText)&upresneni_default=aktivni_a_preruseni,absolventi,zamestnanci,externiste&_suggestMaxItems=25&&subjekt=%32%31%30%31%30&subjekt=%32%31%30%32%30&subjekt=%32%31%30%33%30&subjekt=%32%31%30%34%30&subjekt=%32%31%30%35%30&subjekt=%32%31%30%36%30&subjekt=%32%31%30%37%30&subjekt=%32%31%39%30%30&subjekt=%32%31%39%34%30&subjekt=%32%31%39%35%30&subjekt=%32%31%39%36%30&subjekt=%32%31%39%37%30&subjekt=%32%31%39%38%30&upresneni=%61%6B%74%69%76%6E%69%5F%61%5F%70%72%65%72%75%73%65%6E%69&upresneni=%7A%61%6D%65%73%74%6E%61%6E%63%69&vzorek=&_suggestHandler=lide&lang=\(language)"
     
         DispatchQueue.global().async {
             self.network.postRequest(urlAsString: self.suggestURL, dataToBody: dataBody, completionHandler: {success, statusCode, result in

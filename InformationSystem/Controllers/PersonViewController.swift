@@ -70,6 +70,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UISearchBarDe
     var timer: Timer?
     var initial = true
     var notFound = true
+    var language = "sk"
 //    MARK: Constants
     let suggestURL = "https://is.stuba.sk/auth/system/uissuggest.pl"
     let htmlParser = HTMLParser()
@@ -95,5 +96,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UISearchBarDe
     deinit {
         NotificationCenter.default.removeObserver(self, name: .darkModeEnabled, object: nil)
         NotificationCenter.default.removeObserver(self, name: .darkModeDisabled, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .languageSlovak, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .languageEnglish, object: nil)
     }
 }

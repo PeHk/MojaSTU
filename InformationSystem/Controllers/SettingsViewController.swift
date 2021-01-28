@@ -25,6 +25,9 @@ class SettingsViewController: UITableViewController {
     @IBOutlet weak var firstCell: UITableViewCell!
     @IBOutlet weak var zeroCell: UITableViewCell!
     @IBOutlet weak var zeroMainLabel: UILabel!
+    @IBOutlet weak var languageCell: UITableViewCell!
+    @IBOutlet weak var mainLabel: UILabel!
+    @IBOutlet weak var currentLanguage: UILabel!
     @IBOutlet weak var emailControlSwitch: UISwitch! {
         didSet {
             emailControlSwitch.addTarget(self, action: #selector(changeEmailControl), for: .valueChanged)
@@ -49,6 +52,10 @@ class SettingsViewController: UITableViewController {
 //    MARK: Variables
     var indicator = UIActivityIndicatorView()
     let locationManager = CLLocationManager()
+    var continueString = "Pokračovať"
+    var cancelString = "Zrušiť"
+    var titleCareful = "Upozornenie"
+    var messageString = "Pokračovaním súhlasíte, že aplikácia bude používať internetové pripojenie na pozadí."
     
 
 //    MARK: Lifecycle
@@ -58,6 +65,7 @@ class SettingsViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         
         initObservers()
+        checkObservers()
         let isDarkMode = UserDefaults.standard.bool(forKey: "darkModeEnabled")
         if isDarkMode {
             NotificationCenter.default.post(name: .darkModeEnabled, object: nil)
@@ -93,8 +101,10 @@ class SettingsViewController: UITableViewController {
     }
     
     deinit {
-           NotificationCenter.default.removeObserver(self, name: .darkModeEnabled, object: nil)
-           NotificationCenter.default.removeObserver(self, name: .darkModeDisabled, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .darkModeEnabled, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .darkModeDisabled, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .languageSlovak, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .languageEnglish, object: nil)
     }
     
 //    MARK: Dark mode switcher
@@ -113,12 +123,12 @@ class SettingsViewController: UITableViewController {
     
     @IBAction func changeEmailControl(_ sender: Any) {
         if emailControlSwitch.isOn == true {
-            let alert = UIAlertController(title: "Upozornenie", message: "Pokračovaním súhlasíte, že aplikácia bude používať internetové pripojenie na pozadí.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Pokračovať", style: .default, handler: { action in
+            let alert = UIAlertController(title: self.titleCareful, message: messageString, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: self.continueString, style: .default, handler: { action in
                 UserDefaults.standard.set(false, forKey: "emailControlDisabled")
                 Analytics.logEvent("emailControlEnabled", parameters: nil)
             }))
-            alert.addAction(UIAlertAction(title: "Zrušiť", style: .destructive, handler: {action in
+            alert.addAction(UIAlertAction(title: self.cancelString, style: .destructive, handler: {action in
                 self.emailControlSwitch.setOn(false, animated: true)
             }))
             self.present(alert, animated: true, completion: nil)

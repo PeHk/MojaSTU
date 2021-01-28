@@ -357,7 +357,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Všeobecné" id="5Pf-ms-wVh">
+                            <tableViewSection id="5Pf-ms-wVh">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="MPi-K7-5zg">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
@@ -472,8 +472,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vygeneruje sa nové heslo do univerzitnej siete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Y8-US-KJk">
-                                                    <rect key="frame" x="15" y="53" width="240" height="14"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vygeneruje sa nové heslo do univerzitnej siete" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Y8-US-KJk">
+                                                    <rect key="frame" x="15" y="58.333333333333336" width="260" height="13.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -482,15 +482,44 @@
                                             <constraints>
                                                 <constraint firstItem="6yJ-n9-oCP" firstAttribute="leading" secondItem="gIC-cC-9rl" secondAttribute="leading" constant="15" id="4JO-Op-WGv"/>
                                                 <constraint firstItem="6yJ-n9-oCP" firstAttribute="centerY" secondItem="gIC-cC-9rl" secondAttribute="centerY" constant="-10" id="6L4-kH-P3a"/>
-                                                <constraint firstItem="1Y8-US-KJk" firstAttribute="centerY" secondItem="gIC-cC-9rl" secondAttribute="centerY" constant="10" id="HWb-BQ-fKC"/>
+                                                <constraint firstItem="1Y8-US-KJk" firstAttribute="centerY" secondItem="gIC-cC-9rl" secondAttribute="centerY" constant="15" id="HWb-BQ-fKC"/>
                                                 <constraint firstAttribute="trailing" secondItem="6yJ-n9-oCP" secondAttribute="trailing" constant="100" id="Q7t-0o-DRw"/>
                                                 <constraint firstItem="1Y8-US-KJk" firstAttribute="leading" secondItem="gIC-cC-9rl" secondAttribute="leading" constant="15" id="m1J-aQ-5Z8"/>
-                                                <constraint firstAttribute="trailing" secondItem="1Y8-US-KJk" secondAttribute="trailing" constant="120" id="vSw-zq-bbd"/>
+                                                <constraint firstAttribute="trailing" secondItem="1Y8-US-KJk" secondAttribute="trailing" constant="100" id="vSw-zq-bbd"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LanguageCell" rowHeight="100" id="d7t-1n-baT">
+                                        <rect key="frame" x="0.0" y="428" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d7t-1n-baT" id="tkM-aX-IXl">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jazyk aplikácie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u61-ec-UG1">
+                                                    <rect key="frame" x="15" y="39.666666666666664" width="160" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slovenčina" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cM4-aH-msB">
+                                                    <rect key="frame" x="272.66666666666669" y="39.666666666666664" width="82.333333333333314" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="u61-ec-UG1" firstAttribute="centerY" secondItem="tkM-aX-IXl" secondAttribute="centerY" id="CFW-bl-o9J"/>
+                                                <constraint firstItem="u61-ec-UG1" firstAttribute="leading" secondItem="tkM-aX-IXl" secondAttribute="leading" constant="15" id="KT8-d9-R6h"/>
+                                                <constraint firstAttribute="trailing" secondItem="u61-ec-UG1" secondAttribute="trailing" constant="200" id="PEL-hL-GkM"/>
+                                                <constraint firstItem="cM4-aH-msB" firstAttribute="centerY" secondItem="tkM-aX-IXl" secondAttribute="centerY" id="V0H-Wk-Kdb"/>
+                                                <constraint firstAttribute="trailing" secondItem="cM4-aH-msB" secondAttribute="trailing" constant="20" id="WmM-NN-K5g"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="D5w-eD-24Z">
-                                        <rect key="frame" x="0.0" y="428" width="375" height="100"/>
+                                        <rect key="frame" x="0.0" y="528" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="D5w-eD-24Z" id="5hh-mE-aDR">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
@@ -521,6 +550,7 @@
                     <navigationItem key="navigationItem" title="Nastavenia" id="e7N-oi-o8w"/>
                     <connections>
                         <outlet property="automaticModeSwitch" destination="LOt-Dk-btz" id="Wdz-Xo-fp6"/>
+                        <outlet property="currentLanguage" destination="cM4-aH-msB" id="Tcz-gf-nwG"/>
                         <outlet property="darkModeSwitch" destination="Zcz-vI-KEg" id="boa-VD-yxk"/>
                         <outlet property="emailControlCell" destination="T6q-Lm-4MD" id="Cow-4Y-lIP"/>
                         <outlet property="emailControlLabel" destination="ARr-y8-Gj2" id="Kdl-uv-qP2"/>
@@ -528,6 +558,8 @@
                         <outlet property="emailControlSwitch" destination="0Pb-7M-O51" id="Qu5-iI-gmK"/>
                         <outlet property="firstCell" destination="kzE-ud-SD1" id="5b0-dE-2a3"/>
                         <outlet property="firstCellLabel" destination="i3K-IK-vfj" id="tgs-xJ-veT"/>
+                        <outlet property="languageCell" destination="d7t-1n-baT" id="NRd-eB-E29"/>
+                        <outlet property="mainLabel" destination="u61-ec-UG1" id="e6w-be-Bzb"/>
                         <outlet property="secondCell" destination="kTE-EK-814" id="Vfy-tv-Fc0"/>
                         <outlet property="secondCellLabel" destination="6yJ-n9-oCP" id="uVe-ng-Yjl"/>
                         <outlet property="secondCellText" destination="1Y8-US-KJk" id="fHG-a1-6z5"/>

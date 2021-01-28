@@ -27,6 +27,9 @@ extension SettingsViewController {
         thirdCellText.textColor = .white
         emailControlCell.backgroundColor = UIColor.black
         emailControlLabel.textColor = .white
+        languageCell.backgroundColor = .black
+        currentLanguage.textColor = .white
+        mainLabel.textColor = .white
         tableView.separatorColor = UIColor.darkGray
         tableView.reloadData()
     }
@@ -41,6 +44,9 @@ extension SettingsViewController {
         firstCellLabel.textColor = .black
         secondCellLabel.textColor = .black
         secondCellText.textColor = .darkGray
+        languageCell.backgroundColor = .white
+        currentLanguage.textColor = .black
+        mainLabel.textColor = .black
         zeroSecondLabel.textColor = .darkGray
         emailControlSecondLabel.textColor = .darkGray
         tableView.separatorColor = UIColor.lightGray

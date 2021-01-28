@@ -33,7 +33,6 @@ extension UIViewController {
         } else {
             NotificationCenter.default.post(name: .languageSlovak, object: nil)
         }
-        
     }
     
     @objc func changeLanguageToSlovak(_ notification: Notification) {
