@@ -44,13 +44,25 @@ extension EIndexViewController: UIPickerViewDelegate, UIPickerViewDataSource {
             tableHeaderView.frame.size.height = 203
         }
         
+        let currentLanguage = UserDefaults.standard.value(forKey: "language")
+        
         if !Studies.sharedInstance.arrayOfStudies.isEmpty {
-            mainURL = "https://is.stuba.sk/auth/student/list.pl?studium=\(arraySemester[row].studiesId);obdobi=\(arraySemester[row].id);lang=sk"
-            mainMarksURL = "https://is.stuba.sk/auth/student/pruchod_studiem.pl?studium=\(arraySemester[row].studiesId);obdobi=\(arraySemester[row].id);lang=sk"
+            if currentLanguage != nil && currentLanguage as! String == "EN" {
+                mainURL = "https://is.stuba.sk/auth/student/list.pl?studium=\(arraySemester[row].studiesId);obdobi=\(arraySemester[row].id);lang=en"
+                mainMarksURL = "https://is.stuba.sk/auth/student/pruchod_studiem.pl?studium=\(arraySemester[row].studiesId);obdobi=\(arraySemester[row].id);lang=en"
+            } else {
+                mainURL = "https://is.stuba.sk/auth/student/list.pl?studium=\(arraySemester[row].studiesId);obdobi=\(arraySemester[row].id);lang=sk"
+                mainMarksURL = "https://is.stuba.sk/auth/student/pruchod_studiem.pl?studium=\(arraySemester[row].studiesId);obdobi=\(arraySemester[row].id);lang=sk"
+            }
         }
         else {
-            mainURL = "https://is.stuba.sk/auth/student/list.pl?obdobi=\(arraySemester[row].id);lang=sk"
-            mainMarksURL = "https://is.stuba.sk/auth/student/pruchod_studiem.pl?obdobi=\(arraySemester[row].id);lang=sk"
+            if currentLanguage != nil && currentLanguage as! String == "EN" {
+                mainURL = "https://is.stuba.sk/auth/student/list.pl?obdobi=\(arraySemester[row].id);lang=en"
+                mainMarksURL = "https://is.stuba.sk/auth/student/pruchod_studiem.pl?obdobi=\(arraySemester[row].id);lang=en"
+            } else {
+                mainURL = "https://is.stuba.sk/auth/student/list.pl?obdobi=\(arraySemester[row].id);lang=sk"
+                mainMarksURL = "https://is.stuba.sk/auth/student/pruchod_studiem.pl?obdobi=\(arraySemester[row].id);lang=sk"
+            }
         }
         
         arraySubjects = nil

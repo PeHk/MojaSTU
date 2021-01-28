@@ -32,7 +32,7 @@ class PersonalDataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initObservers()
-        checkDarkMode()
+        checkObservers()
         indicator.startAnimating()
         
         DispatchQueue.global().async {

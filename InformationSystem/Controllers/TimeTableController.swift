@@ -33,10 +33,10 @@ class TimeTableController: UIViewController {
     }
     
 //    MARK: Constants
-    let nameOfDays = ["nil", "Nedeľa", "Pondelok", "Utorok", "Streda", "Štvrtok", "Piatok", "Sobota"]
     let dateFormatter = DateFormatter()
     
 //    MARK: Variables
+    var nameOfDays = ["nil", "Nedeľa", "Pondelok", "Utorok", "Streda", "Štvrtok", "Piatok", "Sobota"]
     var timeTableCells : [String] = []
     var userID = UserDefaults.standard.value(forKey: "userID") as! String
     var indexOfDay = Int()
@@ -47,12 +47,25 @@ class TimeTableController: UIViewController {
     var errorCounter = 0
     var currentDay = Date().dayNumberOfWeek()! - 1
     var currentDate = Date()
+    var messageText = "Na dnešný deň nemáš žiadne rozvrhové akcie"
+    var titleText = "Žiadny rozvrh"
+    var language = "sk"
+    var importantNoticeTitle = "Dôležité upozornenie"
+    var importantNoticeMessage = "Notifikácie je možné prijímať iba, ak je aplikácia v stave \"bežiaca na pozadí\" (viď obrázok) - nie je ukončená. Žiaľ, je to jediný možný spôsob, nakoľko sa nejedná o oficálnu aplikáciu pre AIS.\n Svoju voľbu môžete jednoducho zmeniť aj v nastaveniach aplikácie."
+    var importantSuccess = "Zapnúť notifikácie"
+    var importantCanceled = "Vypnúť notifikácie"
+    var nameDayURL = "https://is.stuba.sk/auth/?lang=sk"
+    var nameDayString = "Meniny má:"
+    var errorTitle = "Nastala chyba, skontrolujte si internetové pripojenie alebo prihlasovacie údaje!"
+    var errorMessageFirst = "Počet pokusov na pripojenie: "
+    var errorMessageLast = "Tlačidlom zrušiť zavriete aplikáciu!"
+    var cancelString = "Zrušiť"
     
     
 //    MARK: Empty table
     lazy var noSubjectsView = EmptyStateView(
-        messageText: "Na dnešný deň nemáš žiadne rozvrhové akcie",
-        titleText: "Žiadny rozvrh",
+        messageText: messageText,
+        titleText: titleText,
         image: UIImage(named: "emptyTimeTable")
     )
     
@@ -82,14 +95,14 @@ class TimeTableController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dateFormatter.dateFormat = "dd.MM.yyyy"
-        timeTableURL = "https://is.stuba.sk/auth/katalog/rozvrhy_view.pl?rozvrh_student_obec=1?zobraz=1;format=json;rozvrh_student=\(userID);zpet=../student/moje_studium.pl?_m=3110,studium=141967,obdobi=560;lang=sk"
+        timeTableURL = "https://is.stuba.sk/auth/katalog/rozvrhy_view.pl?rozvrh_student_obec=1?zobraz=1;format=json;rozvrh_student=\(userID);zpet=../student/moje_studium.pl?_m=3110,studium=141967,obdobi=560;lang=\(language)"
         addRecognizers()
         initObservers()
         
         NotificationCenter.default.addObserver(self, selector: #selector(dateChanged(_:)), name: .dateChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(refreshBadge(_:)), name: .checkEmailsCount, object: nil)
         
-        checkDarkMode()
+        checkObservers()
         setNameOfUser()
         initialBadge()
         getTimeTable()
@@ -100,14 +113,14 @@ class TimeTableController: UIViewController {
         
         if (UserDefaults.standard.object(forKey: "windowAfterUpdate") == nil) {
             let alert = UIAlertController(
-                title: "Dôležité upozornenie",
-                message: "Notifikácie je možné prijímať iba, ak je aplikácia v stave \"bežiaca na pozadí\" (viď obrázok) - nie je ukončená. Žiaľ, je to jediný možný spôsob, nakoľko sa nejedná o oficálnu aplikáciu pre AIS.\n Svoju voľbu môžete jednoducho zmeniť aj v nastaveniach aplikácie.",
+                title: importantNoticeTitle,
+                message: importantNoticeMessage,
                 preferredStyle: .actionSheet)
             
         let image = UIImage(named: "terminatedApp")!
             alert.addImage(image: image)
-            alert.addAction(UIAlertAction(title: "Zapnúť notifikácie", style: .default, handler: nil))
-            alert.addAction(UIAlertAction(title: "Vypnúť notifikácie", style: .destructive, handler: {action in
+            alert.addAction(UIAlertAction(title: importantSuccess, style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: importantCanceled, style: .destructive, handler: {action in
                 UserDefaults.standard.set(true, forKey: "emailControlDisabled")
             }))
         
@@ -150,6 +163,8 @@ class TimeTableController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: .darkModeDisabled, object: nil)
         NotificationCenter.default.removeObserver(self, name: .dateChanged, object: nil)
         NotificationCenter.default.removeObserver(self, name: .checkEmailsCount, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .languageSlovak, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .languageEnglish, object: nil)
     }
     
     @IBAction func refreshBadge(_ notification: Notification) {
@@ -170,8 +185,8 @@ class TimeTableController: UIViewController {
         }
         else {
             DispatchQueue.main.async {
-                let alert = UIAlertController(title: "Nastala chyba, skontrolujte si internetové pripojenie alebo prihlasovacie údaje!", message: "Počet pokusov na pripojenie: \(3 - errorCounter). Tlačidlom zrušiť zavriete aplikáciu!", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Zrušiť", style: .destructive, handler: { action in
+                let alert = UIAlertController(title: self.errorTitle, message: self.errorMessageFirst + "\(3 - errorCounter). " + self.errorMessageLast, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: self.cancelString, style: .destructive, handler: { action in
                     exit(0)
                 }))
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { action in
@@ -214,13 +229,13 @@ class TimeTableController: UIViewController {
     }
     
     func getNameDay() {
-        network.getRequest(urlAsString: "https://is.stuba.sk/auth/?lang=sk", completionHandler: { success, statusCode, result in
+        network.getRequest(urlAsString: nameDayURL, completionHandler: { success, statusCode, result in
             if success {
                 if result != nil {
                     let name = self.htmlparser.getNameDay(fromHtml: result!)
                     if name != nil {
                         DispatchQueue.main.async {
-                            self.nameDayLabel.text = "Meniny má: " + name! 
+                            self.nameDayLabel.text = self.nameDayString + name! 
                         }
                     }
                     else {

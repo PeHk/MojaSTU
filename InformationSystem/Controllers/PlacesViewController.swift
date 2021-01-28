@@ -54,7 +54,7 @@ class PlacesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initObservers()
-        checkDarkMode()
+        checkObservers()
         
         DispatchQueue.global().async {
             if self.studyID != nil && self.semesterID != nil {

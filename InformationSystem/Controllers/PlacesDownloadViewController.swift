@@ -99,7 +99,7 @@ class PlacesDownloadViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initObservers()
-        checkDarkMode()
+        checkObservers()
         indicator.startAnimating()
         
         if detail != "" {

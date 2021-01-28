@@ -14,8 +14,8 @@ extension Notification.Name {
     static let messageWasNotSent = Notification.Name("com.InformationSystem.notifications.messageWasNotSent")
     static let passwordChanged = Notification.Name("com.InformationSystem.notification.passwordChanged")
     static let mailboxChanged = Notification.Name("com.InformationSystem.notification.mailboxChanged")
-    static let dateChanged =
-        Notification.Name("com.InformationSystem.notification.dateChanged")
-    static let checkEmailsCount =
-        Notification.Name("com.InformationSystem.notification.checkEmailsCount")
+    static let dateChanged = Notification.Name("com.InformationSystem.notification.dateChanged")
+    static let checkEmailsCount = Notification.Name("com.InformationSystem.notification.checkEmailsCount")
+    static let languageSlovak = Notification.Name("com.InformationSystem.notification.languageSlovak")
+    static let languageEnglish = Notification.Name("com.InformationSystem.notification.languageEnglish")
 }

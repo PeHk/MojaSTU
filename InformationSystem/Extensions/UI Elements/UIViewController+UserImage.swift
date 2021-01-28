@@ -54,7 +54,7 @@ extension UIViewController {
     }
     
     @objc func ShowUserDetails () {
-        checkDarkMode()
+        checkObservers()
         let storyboard = UIStoryboard(name: "TimeTable", bundle: nil);
         let vc = storyboard.instantiateViewController(withIdentifier: "SideMenuController")
         self.present(vc, animated: true, completion: nil)

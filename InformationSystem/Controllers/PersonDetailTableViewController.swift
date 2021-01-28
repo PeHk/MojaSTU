@@ -116,7 +116,7 @@ class PersonDetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initObservers()
-        checkDarkMode()
+        checkObservers()
         Analytics.logEvent("personDetailLoaded", parameters: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(createNewSerialCode(_:)), name: .messageWasSent, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showErrorNotification(_:)), name: .messageWasNotSent, object: nil)

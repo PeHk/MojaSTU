@@ -87,7 +87,7 @@ class EIndexDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initObservers()
-        checkDarkMode()
+        checkObservers()
         indicator.startAnimating()
 
         if !subject.sheets.isEmpty {

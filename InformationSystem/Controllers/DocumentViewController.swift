@@ -23,14 +23,18 @@ class DocumentViewController: UIViewController {
     }
     
 //    MARK: Constants
-    let mainURL = "https://is.stuba.sk/auth/student/list.pl?;lang=sk"
-    let mainMarksURL = "https://is.stuba.sk/auth/student/pruchod_studiem.pl?;lang=sk"
     let xPathSubject = "/html/body/div[2]/div/div/form/table[2]/tbody/"
     
 //    MARK: Variables
     var arraySubjects : [EIndexSubject]?
     var arraySemester = [Semester]()
     var errorCounter = 0
+    var mainURL = "https://is.stuba.sk/auth/student/list.pl?;lang=sk"
+    var mainMarksURL = "https://is.stuba.sk/auth/student/pruchod_studiem.pl?;lang=sk"
+    var errorTitle = "Nastala chyba, skontrolujte si internetové pripojenie alebo prihlasovacie údaje!"
+    var errorMessageFirst = "Počet pokusov na pripojenie: "
+    var errorMessageLast = "Tlačidlom zrušiť zavriete aplikáciu!"
+    var cancelString = "Zrušiť"
 
 //    MARK: Instances
     let network: Network = Network()
@@ -42,7 +46,7 @@ class DocumentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initObservers()
-        checkDarkMode()
+        checkObservers()
         setNameOfUser()
         
         if !Documents.sharedInstance.arrayOfDocuments.isEmpty {
@@ -66,7 +70,7 @@ class DocumentViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         Files.sharedInstance.arrayOfFolderFiles.removeAll()
         Files.sharedInstance.arrayOfFiles.removeAll()
-        checkDarkMode()
+        checkObservers()
         tableView.reloadData()
         review.incrementOpen()
         Analytics.logEvent("tabDocumentsLoaded", parameters: nil)
@@ -81,8 +85,8 @@ class DocumentViewController: UIViewController {
     func errorOccurred(errorCounter: Int, url: String, urlForMarks: String) {
         if errorCounter <= 3 {
             DispatchQueue.main.async {
-                let alert = UIAlertController(title: "Nastala chyba, skontrolujte si internetové pripojenie alebo prihlasovacie údaje!", message: "Počet pokusov na pripojenie: \(3 - errorCounter). Tlačidlom zrušiť zavriete aplikáciu!", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Zrušiť", style: .destructive, handler: { action in
+                let alert = UIAlertController(title: self.errorTitle, message: self.errorMessageFirst + "\(3 - errorCounter). " + self.errorMessageLast, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: self.cancelString, style: .destructive, handler: { action in
                     exit(0)
                 }))
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { action in

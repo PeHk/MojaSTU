@@ -82,7 +82,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UISearchBarDe
         super.viewDidLoad()
         startSearch.reloadState()
         initObservers()
-        checkDarkMode()
+        checkObservers()
         setNameOfUser()
         
     }

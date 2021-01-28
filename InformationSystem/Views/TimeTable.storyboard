@@ -300,14 +300,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybg-gy-59i">
-                                                    <rect key="frame" x="15" y="20" width="160" height="60"/>
+                                                    <rect key="frame" x="15" y="20" width="260" height="60"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Ybg-gy-59i" secondAttribute="trailing" constant="200" id="JIY-jB-Rw1"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ybg-gy-59i" secondAttribute="trailing" constant="100" id="JIY-jB-Rw1"/>
                                                 <constraint firstItem="Ybg-gy-59i" firstAttribute="leading" secondItem="jkp-vV-Adf" secondAttribute="leading" constant="15" id="Y4i-xz-laR"/>
                                                 <constraint firstItem="Ybg-gy-59i" firstAttribute="top" secondItem="jkp-vV-Adf" secondAttribute="top" constant="20" id="bbV-Pt-g2Y"/>
                                                 <constraint firstAttribute="bottom" secondItem="Ybg-gy-59i" secondAttribute="bottom" constant="20" id="ron-n9-bwG"/>

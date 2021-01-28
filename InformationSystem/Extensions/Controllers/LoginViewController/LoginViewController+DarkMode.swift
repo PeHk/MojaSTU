@@ -15,10 +15,11 @@ extension LoginViewController {
         super.darkModeDisabled(notification)
         backgroundImage.image = UIImage(named: "Background")
         universityLogo.image = UIImage(named: "STUlogo")
-        informationLabel.textColor = UIColor.black
+        informationLabel.textColor = .black
         indicator.color = UIColor.black
         passwordField.backgroundColor = UIColor.white
         loginField.backgroundColor = UIColor.white
+        languageLabel.textColor = .black
     }
 //    MARK: Dark mode on
     override func darkModeEnabled(_ notification: Notification) {
@@ -29,5 +30,6 @@ extension LoginViewController {
         indicator.color = UIColor.white
         passwordField.backgroundColor = UIColor.lightGray
         loginField.backgroundColor = UIColor.lightGray
+        languageLabel.textColor = .white
     }
 }

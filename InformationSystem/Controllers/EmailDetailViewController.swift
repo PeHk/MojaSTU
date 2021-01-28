@@ -95,7 +95,7 @@ class EmailDetailViewController: UIViewController, UIScrollViewDelegate, UITextV
     override func viewDidLoad() {
         super.viewDidLoad()
         initObservers()
-        checkDarkMode()
+        checkObservers()
         indicator.startAnimating()
         
         NotificationCenter.default.addObserver(self, selector: #selector(messageWasSent(_:)), name: .messageWasSent, object: nil)

@@ -49,7 +49,7 @@ class NewMessageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initObservers()
-        checkDarkMode()
+        checkObservers()
     
         if personFinder {
             emailTextField.text = recipient

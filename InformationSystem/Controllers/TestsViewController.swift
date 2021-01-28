@@ -67,7 +67,7 @@ class TestsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initObservers()
-        checkDarkMode()
+        checkObservers()
         startTimer()
         
         DispatchQueue.global().async {

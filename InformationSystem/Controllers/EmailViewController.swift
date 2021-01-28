@@ -116,7 +116,7 @@ class EmailViewController: UIViewController {
         activityIndicator = LoadMoreActivityIndicator(scrollView: tableView, spacingFromLastCell: 10, spacingFromLastCellWhenLoadMoreActionStart: 60)
         
         initObservers()
-        checkDarkMode()
+        checkObservers()
         
         emailsNameLabel.text = mailboxName
     
@@ -153,7 +153,7 @@ class EmailViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        checkDarkMode()
+        checkObservers()
         tableView.reloadData()
         review.incrementOpen()
         Analytics.logEvent("tabEmailsLoaded", parameters: nil)

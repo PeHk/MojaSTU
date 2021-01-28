@@ -14,9 +14,11 @@ extension UIViewController {
     func initObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(darkModeEnabled(_:)), name: .darkModeEnabled, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(darkModeDisabled(_:)), name: .darkModeDisabled, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(changeLanguageToSlovak(_:)), name: .languageSlovak, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(changeLanguageToEnglish(_:)), name: .languageEnglish, object: nil)
     }
     
-    func checkDarkMode() {
+    func checkObservers() {
         let isDarkMode = UserDefaults.standard.bool(forKey: "darkModeEnabled")
         if isDarkMode {
             NotificationCenter.default.post(name: .darkModeEnabled, object: nil)
@@ -24,6 +26,21 @@ extension UIViewController {
         else {
             NotificationCenter.default.post(name: .darkModeDisabled, object: nil)
         }
+        
+        let currentLanguage = UserDefaults.standard.value(forKey: "language")
+        if currentLanguage != nil && currentLanguage as! String == "EN" {
+            NotificationCenter.default.post(name: .languageEnglish, object: nil)
+        } else {
+            NotificationCenter.default.post(name: .languageSlovak, object: nil)
+        }
+        
+    }
+    
+    @objc func changeLanguageToSlovak(_ notification: Notification) {
+        
+    }
+    
+    @objc func changeLanguageToEnglish(_ notification: Notification) {
         
     }
     

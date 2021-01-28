@@ -33,7 +33,7 @@ class MailboxViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initObservers()
-        checkDarkMode()
+        checkObservers()
         
         if !trashLink.isEmpty {
             deleteTrash.isHidden = false

@@ -43,13 +43,22 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var informationLabel: UILabel!
     @IBOutlet weak var universityLogo: UIImageView!
+    @IBOutlet weak var languageLabel: UILabel!
+    @IBOutlet weak var languageStack: UIStackView! {
+        didSet {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(changeLanguage))
+            languageStack.addGestureRecognizer(tapGesture)
+            languageStack.isUserInteractionEnabled = true
+        }
+    }
     
 //    MARK: Constants
-    let nameOfUserData = "lang=sk&osobni=1&z=1&k=1&f=0&studijni_zpet=0&rozvrh=3187&format=html&zobraz=Zobrazi%C5%A5;lang=sk"
     let userIDURL = "https://is.stuba.sk/auth/student/studium.pl"
     let userIDXPath = "/html/body/div[2]/div/div/form/table[2]/tbody/tr[1]/td[2]/small"
     
 //    MARK: Variables
+    var nameOfUserData = "lang=sk&osobni=1&z=1&k=1&f=0&studijni_zpet=0&rozvrh=3187&format=html&zobraz=Zobrazi%C5%A5;lang=sk"
+    
     var HTML = String()
     var nameOfUser = String()
     var userID = String()
@@ -66,7 +75,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initObservers()
-        checkDarkMode()
+        checkObservers()
         Analytics.logEvent("app_started", parameters: nil)
         print(UserDefaults.standard.value(forKey: "userID") != nil)
         if (UserDefaults.standard.value(forKey: "userID") != nil && UserDefaults.standard.value(forKey: "nameOfUser") != nil)
@@ -92,6 +101,8 @@ class LoginViewController: UIViewController {
     deinit {
         NotificationCenter.default.removeObserver(self, name: .darkModeEnabled, object: nil)
         NotificationCenter.default.removeObserver(self, name: .darkModeDisabled, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .languageSlovak, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .languageEnglish, object: nil)
     }
     
 //    MARK: Auth success

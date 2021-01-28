@@ -32,7 +32,6 @@ class SideMenuViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     
 //    MARK: Constants
-    let arrayOfSettings = ["Osobné údaje", "Nastavenia", "Odhlásiť sa"]
     let wifiCredentialsURL = "https://is.stuba.sk/auth/wifi/heslo_vpn_sit.pl"
     let userIDURL = "https://is.stuba.sk/auth/student/studium.pl?studium=142008;obdobi=560;lang=sk"
     let wifiNameXPath = "/html/body/div[2]/div/div/form/table/tbody/tr[1]/td[2]/div/b"
@@ -41,10 +40,15 @@ class SideMenuViewController: UIViewController {
     let wifiPasswordXPath2 = "/html/body/div[2]/div/div/form/table/tbody/tr[2]/td[2]/span/b"
     
 //    MARK: Variables
+    var arrayOfSettings = ["Osobné údaje", "Nastavenia", "Odhlásiť sa"]
     var wifiName = String()
     var wifiPassword = String()
     var userID = UserDefaults.standard.value(forKey: "userID") as! String
     var errorCounter = 0
+    var errorTitle = "Nastala chyba, skontrolujte si internetové pripojenie alebo prihlasovacie údaje!"
+    var errorMessageFirst = "Počet pokusov na pripojenie: "
+    var errorMessageLast = "Tlačidlom zrušiť zavriete aplikáciu!"
+    var cancelString = "Zrušiť"
 
 //    MARK: Instances
     let network: Network = Network()
@@ -55,7 +59,7 @@ class SideMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initObservers()
-        checkDarkMode()
+        checkObservers()
         
         NotificationCenter.default.addObserver(self, selector: #selector(passwordChanged(_:)), name: .passwordChanged, object: nil)
         
@@ -76,6 +80,8 @@ class SideMenuViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: .darkModeEnabled, object: nil)
         NotificationCenter.default.removeObserver(self, name: .darkModeDisabled, object: nil)
         NotificationCenter.default.removeObserver(self, name: .passwordChanged, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .languageSlovak, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .languageEnglish, object: nil)
     }
     
     @objc func passwordChanged(_:Notification) {
@@ -87,8 +93,8 @@ class SideMenuViewController: UIViewController {
     func errorOccurred(errorCounter: Int) {
         if errorCounter <= 3 {
             DispatchQueue.main.async {
-                let alert = UIAlertController(title: "Nastala chyba, skontrolujte si internetové pripojenie alebo prihlasovacie údaje!", message: "Počet pokusov na pripojenie: \(3 - errorCounter). Tlačidlom zrušiť zavriete aplikáciu!", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Zrušiť", style: .destructive, handler: { action in
+                let alert = UIAlertController(title: self.errorTitle, message: self.errorMessageFirst + "\(3 - errorCounter). " + self.errorMessageLast, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: self.cancelString, style: .destructive, handler: { action in
                     exit(0)
                 }))
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { action in
