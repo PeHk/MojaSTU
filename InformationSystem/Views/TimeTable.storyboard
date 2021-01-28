@@ -37,32 +37,37 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="umz-7s-PJr">
-                                        <rect key="frame" x="20" y="4.9999999999999964" width="280" height="57.666666666666657"/>
+                                        <rect key="frame" x="10" y="4.9999999999999964" width="270" height="57.666666666666657"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Štvrtok" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8D-Ft-tm4">
-                                                <rect key="frame" x="0.0" y="0.0" width="280" height="43.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="270" height="43.333333333333336"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAe-hx-G6M">
-                                                <rect key="frame" x="0.0" y="43.333333333333343" width="280" height="14.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="43.333333333333343" width="270" height="14.333333333333336"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="5SI-wE-bb8">
+                                        <rect key="frame" x="280" y="24" width="20" height="20"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="eci-BE-NbZ" secondAttribute="bottom" id="BF2-Jt-JjD"/>
                                     <constraint firstItem="umz-7s-PJr" firstAttribute="top" secondItem="iMO-eZ-emM" secondAttribute="top" constant="5" id="FAO-jt-PjG"/>
+                                    <constraint firstItem="5SI-wE-bb8" firstAttribute="centerY" secondItem="iMO-eZ-emM" secondAttribute="centerY" id="Goz-eS-F7g"/>
                                     <constraint firstItem="eci-BE-NbZ" firstAttribute="top" secondItem="umz-7s-PJr" secondAttribute="bottom" constant="5" id="L2N-f4-hh5"/>
+                                    <constraint firstItem="5SI-wE-bb8" firstAttribute="leading" secondItem="umz-7s-PJr" secondAttribute="trailing" id="Q68-sn-Klc"/>
                                     <constraint firstItem="eci-BE-NbZ" firstAttribute="leading" secondItem="iMO-eZ-emM" secondAttribute="leading" id="aak-7f-79V"/>
                                     <constraint firstAttribute="trailing" secondItem="eci-BE-NbZ" secondAttribute="trailing" id="bzf-aI-jzH"/>
-                                    <constraint firstItem="ATY-6o-smu" firstAttribute="leading" secondItem="umz-7s-PJr" secondAttribute="trailing" constant="5" id="g4q-xc-e3q"/>
-                                    <constraint firstItem="umz-7s-PJr" firstAttribute="leading" secondItem="iMO-eZ-emM" secondAttribute="leading" constant="20" id="gfn-G5-tVW"/>
+                                    <constraint firstItem="ATY-6o-smu" firstAttribute="leading" secondItem="5SI-wE-bb8" secondAttribute="trailing" constant="5" id="fLz-Z2-qwu"/>
+                                    <constraint firstItem="umz-7s-PJr" firstAttribute="leading" secondItem="iMO-eZ-emM" secondAttribute="leading" constant="10" id="gfn-G5-tVW"/>
                                     <constraint firstItem="eci-BE-NbZ" firstAttribute="top" secondItem="ATY-6o-smu" secondAttribute="bottom" constant="5" id="mvJ-im-61Q"/>
                                     <constraint firstItem="ATY-6o-smu" firstAttribute="top" secondItem="iMO-eZ-emM" secondAttribute="top" constant="5" id="pXZ-pg-zWb"/>
                                     <constraint firstAttribute="trailing" secondItem="ATY-6o-smu" secondAttribute="trailing" constant="10" id="su4-fH-peX"/>
@@ -184,6 +189,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="MA7-8q-nJE"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="5SI-wE-bb8" id="G8L-Ma-cGF"/>
                         <outlet property="dateLabel" destination="ATY-6o-smu" id="b94-4t-eHp"/>
                         <outlet property="mainStack" destination="umz-7s-PJr" id="QPv-D0-kjE"/>
                         <outlet property="nameDayLabel" destination="kAe-hx-G6M" id="8H8-SS-vEs"/>

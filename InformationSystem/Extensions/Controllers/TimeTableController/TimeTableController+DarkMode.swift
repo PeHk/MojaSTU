@@ -24,6 +24,7 @@ extension TimeTableController {
         noSubjectsView.image = UIImage(named: "emptyTimeTable")
         nameDayLabel.textColor = .black
         dateLabel.textColor = .black
+        activityIndicator.color = .black
     }
 //    MARK: Dark mode on
     override func darkModeEnabled(_ notification: Notification) {
@@ -38,5 +39,6 @@ extension TimeTableController {
         noSubjectsView.image = UIImage(named: "emptyTimeTable - white")
         nameDayLabel.textColor = .white
         dateLabel.textColor = .white
+        activityIndicator.color = .white
     }
 }

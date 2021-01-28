@@ -26,6 +26,11 @@ class TimeTableController: UIViewController {
     @IBOutlet weak var nameDayLabel: UILabel!
     @IBOutlet weak var mainStack: UIStackView!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView! {
+        didSet {
+            activityIndicator.isHidden = true
+        }
+    }
     
 //    MARK: Constants
     let nameOfDays = ["nil", "Nedeľa", "Pondelok", "Utorok", "Streda", "Štvrtok", "Piatok", "Sobota"]
@@ -116,6 +121,8 @@ class TimeTableController: UIViewController {
         let currentDateString = dateFormatter.string(from: currentDate)
         let userDefaultsValue = UserDefaults.standard.string(forKey: "currentDate")
         if (userDefaultsValue != nil && userDefaultsValue! != currentDateString) {
+            activityIndicator.isHidden = false
+            activityIndicator.startAnimating()
             indexOfDay = Date().dayNumberOfWeek()!
             timeTableDay.text = nameOfDays[indexOfDay]
             getNameDay()
@@ -190,6 +197,8 @@ class TimeTableController: UIViewController {
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                         self.checkScroll()
+                        self.activityIndicator.stopAnimating()
+                        self.activityIndicator.isHidden = true
                     }
                 }
                 else {

@@ -25,8 +25,7 @@ extension Network {
         
         let data = Data(("lang=sk&zprava=1&To=\(emailTo)&Cc=&Bcc=&Subject=\(subject)&Data=\(textMessage)&priloha=&priloha=&priloha=&priloha=&priloha=&priloha=&priloha=&ulozit_odesl_zpravu=1&ulozit_do_sl=\(folderID)&send=ODOSLAŤ SPRÁVU&akce=schranka&serializace=\(userSerialCode)").utf8)
         
-        let noRedirect = true
-        let myDelegate: Network? = noRedirect ? Network() : nil
+        let myDelegate: Network? = Network()
         
         let session = URLSession(configuration: URLSessionConfiguration.default, delegate: myDelegate, delegateQueue: nil)
         let loadDataTask = session.uploadTask(with: request, from: data) { (responseData, response, error) in
@@ -66,8 +65,7 @@ extension Network {
         
         let data = Data(("lang=sk&zprava=1&To=\(emailTo)&Cc=&Bcc=&Subject=\(subject)&Data=\(textMessage)&priloha=&priloha=&priloha=&priloha=&priloha=&priloha=&priloha=&ulozit_odesl_zpravu=1&ulozit_do_sl=\(folderID)&send=ODOSLAŤ SPRÁVU&akce=schranka&serializace=\(userSerialCode)&old_fid=\(old_fid)&old_eid=\(old_eid)&fid=\(fid)&eid=\(eid)&menu_akce=odpovedet").utf8)
         
-        let noRedirect = true
-        let myDelegate: Network? = noRedirect ? Network() : nil
+        let myDelegate: Network? = Network()
         
         let session = URLSession(configuration: URLSessionConfiguration.default, delegate: myDelegate, delegateQueue: nil)
         let loadDataTask = session.uploadTask(with: request, from: data) { (responseData, response, error) in
