@@ -22,7 +22,7 @@ extension TestsViewController: UITableViewDelegate, UITableViewDataSource {
             cell.testNameLabel.text = test.testName
 
             if test.allPoints == "" && test.myPoints == "" {
-                cell.myPoints.text = "Skryté"
+                cell.myPoints.text = hiddenString
                 cell.myPoints.textColor = .systemRed
                 cell.allPoints.isHidden = true
             }

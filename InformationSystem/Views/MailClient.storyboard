@@ -703,6 +703,7 @@
                     </view>
                     <connections>
                         <outlet property="attachmentLabel" destination="6l6-Ki-cLV" id="CLk-c3-9Oy"/>
+                        <outlet property="downloadLabel" destination="qkn-PW-J7a" id="tmG-37-IZE"/>
                         <outlet property="indicator" destination="8CS-Ec-4dK" id="k7Z-bz-cFP"/>
                         <outlet property="loadingView" destination="br0-U4-fFE" id="JeK-6H-uAI"/>
                         <outlet property="tableFooterView" destination="kQW-zr-GQP" id="RZN-0b-HmS"/>

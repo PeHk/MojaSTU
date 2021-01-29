@@ -17,6 +17,8 @@ extension LoginViewController {
         passwordField.placeholder = "Heslo"
         loginField.placeholder = "Prihlasovacie meno (AIS)"
         loginButton.setTitle("Prihlásiť sa", for: .normal)
+        languageImage.image = UIImage(named: "slovakia")
+        
     }
     
     override func changeLanguageToEnglish(_ notification: Notification) {
@@ -26,6 +28,7 @@ extension LoginViewController {
         passwordField.placeholder = "Password"
         loginField.placeholder = "Login (AIS)"
         loginButton.setTitle("Login", for: .normal)
+        languageImage.image = UIImage(named: "uk")
     }
     
     @IBAction func changeLanguage() {

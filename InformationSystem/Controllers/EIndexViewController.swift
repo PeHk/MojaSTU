@@ -238,7 +238,6 @@ class EIndexViewController: UIViewController {
     }
     
     @objc func testsTapped() {
-        print("Testy")
         if let destinationViewController = navigationController?.storyboard?.instantiateViewController(withIdentifier: "testsViewController") as? TestsViewController {
             navigationController?.pushViewController(destinationViewController, animated: true)
         }

@@ -175,7 +175,7 @@ Moja STU</string>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ewT-d7-GC6">
-                                <rect key="frame" x="195" y="44" width="150" height="14.333333333333336"/>
+                                <rect key="frame" x="195" y="49" width="150" height="14.333333333333336"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slovenčina" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ed8-S8-3C3">
                                         <rect key="frame" x="0.0" y="0.0" width="133" height="14.333333333333334"/>
@@ -189,8 +189,8 @@ Moja STU</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pBt-4n-AVv">
-                                        <rect key="frame" x="138" y="3.6666666666666679" width="12" height="7.3333333333333339"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slovakia" translatesAutoresizingMaskIntoConstraints="NO" id="pBt-4n-AVv">
+                                        <rect key="frame" x="138" y="1.3333333333333357" width="12" height="12"/>
                                         <color key="tintColor" red="0.52549019610000003" green="0.70196078429999997" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="12" id="rlf-EV-JFu"/>
@@ -216,7 +216,7 @@ Moja STU</string>
                             <constraint firstAttribute="trailing" secondItem="F3J-bP-6Hi" secondAttribute="trailing" id="BQV-3h-H5e"/>
                             <constraint firstItem="F3J-bP-6Hi" firstAttribute="leading" secondItem="5M7-TC-qF7" secondAttribute="leading" id="K2J-Ba-FkX"/>
                             <constraint firstItem="Ubu-VJ-Ma2" firstAttribute="trailing" secondItem="ewT-d7-GC6" secondAttribute="trailing" constant="30" id="LPg-1A-ZKi"/>
-                            <constraint firstItem="ewT-d7-GC6" firstAttribute="top" secondItem="Ubu-VJ-Ma2" secondAttribute="top" id="VTc-B1-Lcb"/>
+                            <constraint firstItem="ewT-d7-GC6" firstAttribute="top" secondItem="Ubu-VJ-Ma2" secondAttribute="top" constant="5" id="VTc-B1-Lcb"/>
                             <constraint firstItem="Ubu-VJ-Ma2" firstAttribute="trailing" secondItem="TBG-2b-jgL" secondAttribute="trailing" constant="30" id="YeW-uA-ho1"/>
                             <constraint firstAttribute="bottom" secondItem="F3J-bP-6Hi" secondAttribute="bottom" id="gf3-V0-Dw1"/>
                             <constraint firstItem="F3J-bP-6Hi" firstAttribute="top" secondItem="5M7-TC-qF7" secondAttribute="top" id="q6D-ym-lY5"/>
@@ -230,6 +230,7 @@ Moja STU</string>
                         <outlet property="backgroundImage" destination="F3J-bP-6Hi" id="6jr-Qp-hvY"/>
                         <outlet property="indicator" destination="QXY-TP-UVt" id="rJx-zl-7zz"/>
                         <outlet property="informationLabel" destination="hzg-Im-9Fg" id="19a-a2-tzG"/>
+                        <outlet property="languageImage" destination="pBt-4n-AVv" id="0uu-qz-YTz"/>
                         <outlet property="languageLabel" destination="Ed8-S8-3C3" id="LOY-AG-CYQ"/>
                         <outlet property="languageStack" destination="ewT-d7-GC6" id="nTD-F7-xQT"/>
                         <outlet property="loginButton" destination="6xk-3O-rBG" id="LMP-DA-e3K"/>
@@ -291,6 +292,6 @@ Moja STU</string>
         <image name="Background" width="467.5" height="697.5"/>
         <image name="STUlogo" width="354" height="143.66667175292969"/>
         <image name="WelcomeLogo" width="310" height="390"/>
-        <image name="arrowtriangle.down" catalog="system" width="128" height="124"/>
+        <image name="slovakia" width="137.5" height="91.5"/>
     </resources>
 </document>

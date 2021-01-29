@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G2l-5F-VXW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G2l-5F-VXW">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,7 +19,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yrv-at-ry4">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="W9p-sn-BF4">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -36,7 +38,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="toe-XY-8V7" firstAttribute="leading" secondItem="W9p-sn-BF4" secondAttribute="leading" id="7U9-DC-bjF"/>
                                         <constraint firstItem="q2g-6j-hfG" firstAttribute="centerY" secondItem="W9p-sn-BF4" secondAttribute="centerY" id="DLs-R6-c1q"/>
@@ -49,7 +51,7 @@
                                 <view key="tableFooterView" contentMode="scaleToFill" id="yNT-HK-uKp">
                                     <rect key="frame" x="0.0" y="204" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DocumentCell" id="M1L-OI-EQc" customClass="DocumentTableViewCell" customModule="Moja_STU" customModuleProvider="target">
@@ -87,6 +89,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="BDo-p5-djQ"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="yrv-at-ry4" secondAttribute="trailing" id="1kv-Bi-9uN"/>
@@ -94,7 +97,6 @@
                             <constraint firstItem="yrv-at-ry4" firstAttribute="top" secondItem="BDo-p5-djQ" secondAttribute="top" id="RHg-81-baT"/>
                             <constraint firstItem="yrv-at-ry4" firstAttribute="bottom" secondItem="BDo-p5-djQ" secondAttribute="bottom" id="TRx-EK-BeT"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="BDo-p5-djQ"/>
                     </view>
                     <navigationItem key="navigationItem" id="WHf-EA-st7"/>
                     <connections>
@@ -118,7 +120,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rRX-OX-PBL">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="4d7-tq-qux">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -140,7 +142,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="YmP-zU-OyW" secondAttribute="trailing" id="6fj-JZ-1Fi"/>
                                         <constraint firstAttribute="height" constant="70" id="BTn-HO-Ctx"/>
@@ -155,7 +157,7 @@
                                 <view key="tableFooterView" contentMode="scaleToFill" id="CdE-X6-yng">
                                     <rect key="frame" x="0.0" y="206" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DocumentDetailCell" id="5pU-JZ-mSQ" customClass="DocumentDetailTableViewCell" customModule="Moja_STU" customModuleProvider="target">
@@ -231,7 +233,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ZaI-ze-oSg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="2bG-Ff-s6M" firstAttribute="centerY" secondItem="TZU-lu-oLQ" secondAttribute="centerY" id="DbC-t8-kdq"/>
                             <constraint firstItem="ZaI-ze-oSg" firstAttribute="trailing" secondItem="rRX-OX-PBL" secondAttribute="trailing" id="Ocy-JB-yXO"/>
@@ -240,12 +243,11 @@
                             <constraint firstItem="rRX-OX-PBL" firstAttribute="top" secondItem="ZaI-ze-oSg" secondAttribute="top" id="kXb-pg-owv"/>
                             <constraint firstItem="rRX-OX-PBL" firstAttribute="leading" secondItem="ZaI-ze-oSg" secondAttribute="leading" id="n8H-tF-LLI"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ZaI-ze-oSg"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="downloadLabel" destination="o8u-9r-cXH" id="tjb-nz-xk7"/>
+                        <outlet property="downloadLabel" destination="o8u-9r-cXH" id="be5-rf-Sdd"/>
                         <outlet property="downloadView" destination="2bG-Ff-s6M" id="sQx-mU-02T"/>
                         <outlet property="indicator" destination="L17-9w-S47" id="2Ku-Qe-6oi"/>
                         <outlet property="labelName" destination="8sm-A8-PZ5" id="BhI-4H-0AO"/>
@@ -277,7 +279,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="5dE-ks-93v" firstAttribute="top" secondItem="kyL-ch-pU1" secondAttribute="top" constant="15" id="AOI-ss-Xq3"/>
                                     <constraint firstAttribute="trailing" secondItem="5dE-ks-93v" secondAttribute="trailing" constant="10" id="a00-pB-sgx"/>
@@ -285,14 +287,14 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="mhN-rE-fFb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="kyL-ch-pU1" firstAttribute="top" secondItem="bzg-5R-KEe" secondAttribute="top" id="1CM-f3-p0Q"/>
                             <constraint firstItem="kyL-ch-pU1" firstAttribute="leading" secondItem="mhN-rE-fFb" secondAttribute="leading" id="427-cM-2jh"/>
                             <constraint firstAttribute="bottom" secondItem="kyL-ch-pU1" secondAttribute="bottom" id="HKB-cV-IBf"/>
                             <constraint firstItem="mhN-rE-fFb" firstAttribute="trailing" secondItem="kyL-ch-pU1" secondAttribute="trailing" id="VpL-xD-SyA"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="mhN-rE-fFb"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -335,7 +337,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qqc-ry-toD">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="Xek-hp-hux">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -357,7 +359,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="70" id="FdV-hM-GJB"/>
                                         <constraint firstItem="KkU-I6-nuC" firstAttribute="leading" secondItem="Xek-hp-hux" secondAttribute="leading" id="Hby-Ne-5qx"/>
@@ -372,7 +374,7 @@
                                 <view key="tableFooterView" contentMode="scaleToFill" id="QE3-VX-LAb">
                                     <rect key="frame" x="0.0" y="206" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DocumentDetailCell" id="b1u-bI-F8p" customClass="DocumentDetailTableViewCell" customModule="Moja_STU" customModuleProvider="target">
@@ -448,7 +450,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="fWX-RC-N0C"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="fWX-RC-N0C" firstAttribute="bottom" secondItem="Qqc-ry-toD" secondAttribute="bottom" id="KD1-Hr-und"/>
                             <constraint firstItem="2zo-bv-LH6" firstAttribute="centerY" secondItem="X2z-Yn-3RD" secondAttribute="centerY" id="MKN-td-DMM"/>
@@ -457,11 +460,11 @@
                             <constraint firstItem="2zo-bv-LH6" firstAttribute="centerX" secondItem="X2z-Yn-3RD" secondAttribute="centerX" id="sUn-eh-l21"/>
                             <constraint firstItem="fWX-RC-N0C" firstAttribute="trailing" secondItem="Qqc-ry-toD" secondAttribute="trailing" id="w2I-rE-yV4"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="fWX-RC-N0C"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="downloadLabel" destination="jX7-2s-56U" id="78H-1M-ogA"/>
                         <outlet property="downloadView" destination="2zo-bv-LH6" id="Koq-fu-zeR"/>
                         <outlet property="indicator" destination="o0w-uD-dKf" id="XvB-ll-mZl"/>
                         <outlet property="labelName" destination="1Zv-lX-yma" id="MxE-21-hFu"/>
@@ -478,5 +481,8 @@
     <resources>
         <image name="Documents" width="25" height="25"/>
         <image name="icons8-pdf-50" width="50" height="50"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

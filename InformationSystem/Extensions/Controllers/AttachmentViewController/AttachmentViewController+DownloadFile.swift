@@ -20,19 +20,19 @@ extension AttachmentViewController {
                     }
                     else {
                         DispatchQueue.main.async {
-                            self.showAlertWindow(title: "Niečo sa pokazilo!", message: "Prosím skúste znova!")
+                            self.showAlertWindow(title: self.errorTitle, message: self.errorText)
                         }
                     }
                 }
                 else {
                     DispatchQueue.main.async {
-                        self.showAlertWindow(title: "Niečo sa pokazilo!", message: "Prosím skúste znova!")
+                        self.showAlertWindow(title: self.errorTitle, message: self.errorText)
                     }
                 }
             }
             else {
                 DispatchQueue.main.async {
-                    self.showAlertWindow(title: "Niečo sa pokazilo!", message: "Prosím skúste znova!")
+                    self.showAlertWindow(title: self.errorTitle, message: self.errorText)
                 }
             }
         })

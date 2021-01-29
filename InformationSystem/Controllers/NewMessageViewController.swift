@@ -39,6 +39,16 @@ class NewMessageViewController: UIViewController {
     var message = String()
     var personFinder = Bool()
     var recipient = String()
+    var newMessageString = "Nová správa"
+    var cancelString = "Zrušiť"
+    var sendString = "Odoslať"
+    var noRecipientTitle = "Nevyplnili ste príjemcu!"
+    var noRecipientText = "Doplňte príjemcov správy a skúste znova."
+    var conceptTitle = "Koncept"
+    var conceptText = "Želáte si zahodiť rozpísanú správu?"
+    var conceptCancel = "Zahodiť koncept"
+    var incompleteTitle = "Nekompletná správa!"
+    var incompleteText = "Chcete odoslať správu bez predmetu alebo textu v tele?"
     
 //    MARK: Instances
     let network: Network = Network()
@@ -62,6 +72,8 @@ class NewMessageViewController: UIViewController {
     deinit {
         NotificationCenter.default.removeObserver(self, name: .darkModeEnabled, object: nil)
         NotificationCenter.default.removeObserver(self, name: .darkModeDisabled, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .languageSlovak, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .languageEnglish, object: nil)
     }
     
 //    MARK: Send tapped
@@ -84,22 +96,22 @@ class NewMessageViewController: UIViewController {
             }
         }
         else {
-            showAlertWindow(title: "Nevyplnili ste príjemcu!", message: "Doplňte príjemcov správy a skúste znova.")
+            showAlertWindow(title: self.noRecipientTitle, message: self.noRecipientText)
         }
     }
 //    MARK: Cancel tapped
     @IBAction func cancelTapped(_ sender: Any) {
         if !subjectTextField.text!.isEmpty || !emailTextField.text!.isEmpty || !messageTextView.text.isEmpty {
-            let alert = UIAlertController(title: "Koncept", message: "Želáte si zahodiť rozpísanú správu?", preferredStyle: UIAlertController.Style.actionSheet)
-            alert.addAction(UIAlertAction(title: "Zahodiť koncept", style: UIAlertAction.Style.destructive, handler: { action in
+            let alert = UIAlertController(title: self.conceptTitle, message: self.conceptText, preferredStyle: UIAlertController.Style.actionSheet)
+            alert.addAction(UIAlertAction(title: self.conceptCancel, style: UIAlertAction.Style.destructive, handler: { action in
                 self.presentingViewController?.dismiss(animated: true, completion: nil)
             }))
-            alert.addAction(UIAlertAction(title: "Uložiť koncept", style: UIAlertAction.Style.default, handler: { action in
-                DispatchQueue.main.async {
-                    self.showAlertWindow(title: "Neimplementované!", message: "Funkcionalita nebola zatiaľ implementovaná!")
-                }
-            }))
-            alert.addAction(UIAlertAction(title: "Zrušiť", style: UIAlertAction.Style.default, handler: nil))
+//            alert.addAction(UIAlertAction(title: "Uložiť koncept", style: UIAlertAction.Style.default, handler: { action in
+//                DispatchQueue.main.async {
+//                    self.showAlertWindow(title: "Neimplementované!", message: "Funkcionalita nebola zatiaľ implementovaná!")
+//                }
+//            }))
+            alert.addAction(UIAlertAction(title: self.cancelString, style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
         else {
@@ -124,8 +136,8 @@ class NewMessageViewController: UIViewController {
 
 //    MARK: Alert window
     func alertForEmail() {
-        let alert = UIAlertController(title: "Nekompletná správa!", message: "Chcete odoslať správu bez predmetu alebo textu v tele?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Odoslať", style: .default, handler: { action in
+        let alert = UIAlertController(title: self.incompleteTitle, message: self.incompleteText, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: self.sendString, style: .default, handler: { action in
             if !self.isAnswer {
                 self.sendNewEmail()
             }
@@ -133,7 +145,7 @@ class NewMessageViewController: UIViewController {
                 self.sendAnsweringEmail()
             }
         }))
-        alert.addAction(UIAlertAction(title: "Zrušiť", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: self.cancelString, style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     

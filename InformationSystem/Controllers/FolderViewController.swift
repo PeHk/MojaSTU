@@ -16,6 +16,7 @@ class FolderViewController: UIViewController {
     @IBOutlet weak var tableFooterView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
+    @IBOutlet weak var downloadLabel: UILabel!
     @IBOutlet weak var tableHeaderView: UIView!
     @IBOutlet weak var downloadView: UIView! {
         didSet {

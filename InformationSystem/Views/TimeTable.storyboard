@@ -586,11 +586,11 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="lfw-ei-DZi">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tieto údaje vidíte iba Vy, nie sú verejne dostupné!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00p-L2-GeQ">
-                                            <rect key="frame" x="21" y="13" width="333" height="18"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tieto údaje vidíte iba Vy, nie sú verejne dostupné!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00p-L2-GeQ">
+                                            <rect key="frame" x="10" y="22.666666666666668" width="355" height="18.000000000000004"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -599,17 +599,18 @@
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="00p-L2-GeQ" firstAttribute="centerY" secondItem="lfw-ei-DZi" secondAttribute="centerY" id="4BA-vk-hXU"/>
-                                        <constraint firstItem="00p-L2-GeQ" firstAttribute="centerX" secondItem="lfw-ei-DZi" secondAttribute="centerX" id="e6X-eb-Qyq"/>
+                                        <constraint firstItem="00p-L2-GeQ" firstAttribute="leading" secondItem="lfw-ei-DZi" secondAttribute="leading" constant="10" id="JU4-Oh-gQb"/>
+                                        <constraint firstAttribute="trailing" secondItem="00p-L2-GeQ" secondAttribute="trailing" constant="10" id="Rh4-FH-MBR"/>
                                     </constraints>
                                 </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="9EF-0T-Fsf">
-                                    <rect key="frame" x="0.0" y="129.66666603088379" width="375" height="43.999999999999972"/>
+                                    <rect key="frame" x="0.0" y="148.66666603088382" width="375" height="43.999999999999972"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PersonalDataCell" id="lZu-k0-0VJ" customClass="PersonalDataTableViewCell" customModule="Moja_STU" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="29.666666030883789"/>
+                                        <rect key="frame" x="0.0" y="91" width="375" height="29.666666030883789"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lZu-k0-0VJ" id="44o-dq-SHb">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="29.666666030883789"/>

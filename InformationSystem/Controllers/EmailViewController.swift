@@ -64,6 +64,18 @@ class EmailViewController: UIViewController {
         return refreshControl
     }()
     
+    var messageSuccess = "Správa bola úspešne odoslaná!"
+    var messageFailure = "Správa nebola odoslaná!"
+    var errorTitle = "Nastala chyba, skontrolujte si internetové pripojenie alebo prihlasovacie údaje!"
+    var errorMessageFirst = "Počet pokusov na pripojenie: "
+    var errorMessageLast = "Tlačidlom zrušiť zavriete aplikáciu!"
+    var cancelString = "Zrušiť"
+    var errorAction = "Nastala chyba!"
+    var errorActionString = "Akcia nebola vykonaná!"
+    var blockRefresh = "Aktualizácia blokovaná"
+    var blockRefreshString = "Aktualizácia je možná len raz za 5 sekúnd!"
+    var mailboxesString = " Prečinky"
+    
 //    MARK: Empty table
     lazy var noEmailsView = EmptyStateView(
         messageText: "V tomto priečinku nemáš žiadne správy!",
@@ -174,6 +186,9 @@ class EmailViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: .messageWasSent, object: nil)
         NotificationCenter.default.removeObserver(self, name: .messageWasNotSent, object: nil)
         NotificationCenter.default.removeObserver(self, name: .checkEmailsCount, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .languageSlovak, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .languageEnglish, object: nil)
+        
         
     }
     
@@ -193,7 +208,7 @@ class EmailViewController: UIViewController {
     @IBAction func createNewSerialCode(_ notification: Notification) {
         DispatchQueue.main.async {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.notificationLabel.text = "Správa bola úspešne odoslaná!"
+                self.notificationLabel.text = self.messageSuccess
                 self.showPanel()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                     self.hidePanel()
@@ -205,7 +220,7 @@ class EmailViewController: UIViewController {
     
     @IBAction func showErrorNotification(_ notification: Notification) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.notificationLabel.text = "Správa nebola odoslaná!"
+            self.notificationLabel.text = self.messageFailure
             self.showPanel()
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                 self.hidePanel()
@@ -285,8 +300,8 @@ class EmailViewController: UIViewController {
     func errorOccurred(errorCounter: Int, url: String, type: Int) {
         if errorCounter <= 3 {
             DispatchQueue.main.async {
-                let alert = UIAlertController(title: "Nastala chyba, skontrolujte si internetové pripojenie alebo prihlasovacie údaje!", message: "Počet pokusov na pripojenie: \(3 - errorCounter). Tlačidlom zrušiť zavriete aplikáciu!", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Zrušiť", style: .destructive, handler: { action in
+                let alert = UIAlertController(title: self.errorTitle, message: self.errorMessageFirst + "\(3 - errorCounter). " + self.errorMessageLast, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: self.cancelString, style: .destructive, handler: { action in
                     exit(0)
                 }))
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { action in

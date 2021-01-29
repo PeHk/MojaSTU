@@ -14,7 +14,7 @@ extension NewMessageViewController: UITextFieldDelegate {
         let text = subjectTextField.text ?? ""
         let newText = (text as NSString).replacingCharacters(in: range, with: string)
         if newText.isEmpty {
-            titleTextField.text = "Nová správa"
+            titleTextField.text = newMessageString
         } else {
             titleTextField.text = newText
         }

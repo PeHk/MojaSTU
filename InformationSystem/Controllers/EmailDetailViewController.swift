@@ -85,6 +85,12 @@ class EmailDetailViewController: UIViewController, UIScrollViewDelegate, UITextV
     var errorCounter = 0
     var indicator = UIActivityIndicatorView()
     var attachmentsArray : [Attachment]?
+    var errorTitle = "Nastala chyba, skontrolujte si internetové pripojenie alebo prihlasovacie údaje!"
+    var errorMessageFirst = "Počet pokusov na pripojenie: "
+    var errorMessageLast = "Tlačidlom zrušiť zavriete aplikáciu!"
+    var cancelString = "Zrušiť"
+    var alertTitle = "Niečo sa pokazilo!"
+    var alertText = "Prosím reštartujte aplikáciu!"
     
 //    MARK: Instances
     let network: Network = Network()
@@ -137,13 +143,13 @@ class EmailDetailViewController: UIViewController, UIScrollViewDelegate, UITextV
                 }
                 else {
                     DispatchQueue.main.async {
-                        self.showAlertWindow(title: "Niečo sa pokazilo!", message: "Prosím reštartujte aplikáciu!")
+                        self.showAlertWindow(title: self.alertTitle, message: self.alertText)
                     }
                 }
             }
             else {
                 DispatchQueue.main.async {
-                    self.showAlertWindow(title: "Niečo sa pokazilo!", message: "Prosím reštartujte aplikáciu!")
+                    self.showAlertWindow(title: self.alertTitle, message: self.alertText)
                 }
             }
         }
@@ -157,6 +163,8 @@ class EmailDetailViewController: UIViewController, UIScrollViewDelegate, UITextV
         NotificationCenter.default.removeObserver(self, name: .darkModeEnabled, object: nil)
         NotificationCenter.default.removeObserver(self, name: .darkModeDisabled, object: nil)
         NotificationCenter.default.removeObserver(self, name: .messageWasSent, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .languageSlovak, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .languageEnglish, object: nil)
     }
     
 //      MARK: Notification
@@ -201,8 +209,8 @@ class EmailDetailViewController: UIViewController, UIScrollViewDelegate, UITextV
     func errorOccurred(errorCounter: Int, url: String) {
         if errorCounter <= 3 {
             DispatchQueue.main.async {
-                let alert = UIAlertController(title: "Nastala chyba, skontrolujte si internetové pripojenie alebo prihlasovacie údaje!", message: "Počet pokusov na pripojenie: \(3 - errorCounter). Tlačidlom zrušiť zavriete aplikáciu!", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Zrušiť", style: .destructive, handler: { action in
+                let alert = UIAlertController(title: self.errorTitle, message: self.errorMessageFirst + "\(3 - errorCounter). " + self.errorMessageLast, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: self.cancelString, style: .destructive, handler: { action in
                     exit(0)
                 }))
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { action in

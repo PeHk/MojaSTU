@@ -327,7 +327,7 @@ class HTMLParser: NSObject {
                 else {
                     mark = stringparser.suffixWithoutVal(value: "(", string: mark)
                     mark = stringparser.prefixWithoutVal(value: ")", string: mark)
-                    array[n].subjectMark = mark
+                    array[n].subjectMark = String(mark.prefix(1)).uppercased()
                 }
             }
             

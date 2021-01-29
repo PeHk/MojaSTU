@@ -18,7 +18,7 @@ extension FolderViewController  {
         cancelString = "Zrušiť"
         errorMessageFirst = "Počet pokusov na pripojenie: "
         errorMessageLast = "Tlačidlom zrušiť zavriete aplikáciu!"
-        
+        downloadLabel.text = "Sťahujem..."
     }
     
     override func changeLanguageToEnglish(_ notification: Notification) {
@@ -29,5 +29,6 @@ extension FolderViewController  {
         cancelString = "Cancel"
         errorMessageFirst = "Connection attempts: "
         errorMessageLast = "Tap Cancel to close the application!"
+        downloadLabel.text = "Downloading..."
     }
 }

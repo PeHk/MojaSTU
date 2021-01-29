@@ -34,6 +34,7 @@ class TestsViewController: UIViewController {
     var errorMessageFirst = "Počet pokusov na pripojenie: "
     var errorMessageLast = "Tlačidlom zrušiť zavriete aplikáciu!"
     var cancelString = "Zrušiť"
+    var hiddenString = "Skryté"
     
 //    MARK: Constructors
     let network: Network = Network()

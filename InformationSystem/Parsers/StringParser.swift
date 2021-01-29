@@ -65,6 +65,9 @@ class StringParser: NSObject {
         tmp = suffixWithoutVal(value: " ", string: tmp)
         
         time = tmp
+        if time == "" {
+            time = suffixWithoutVal(value: " ", string: string)
+        }
         
         return (finalDate, time)
     }

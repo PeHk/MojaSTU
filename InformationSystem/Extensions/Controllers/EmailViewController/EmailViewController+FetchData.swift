@@ -34,7 +34,7 @@ extension EmailViewController {
             }
         }
         else {
-            blockRefreshAlert(title: "Aktualizácia blokovaná", message: "Aktualizácia je možná len raz za 5 sekúnd!")
+            blockRefreshAlert(title: self.blockRefresh, message: self.blockRefreshString)
         }
     }
     

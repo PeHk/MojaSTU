@@ -24,6 +24,7 @@ class LoginViewController: UIViewController {
             loginButton.layer.cornerRadius = 30
         }
     }
+    @IBOutlet weak var languageImage: UIImageView!
     @IBOutlet weak var passwordField: UITextField! {
         didSet {
             passwordField.setPadding()

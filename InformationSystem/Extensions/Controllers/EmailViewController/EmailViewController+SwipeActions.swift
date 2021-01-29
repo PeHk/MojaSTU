@@ -36,7 +36,7 @@ extension EmailViewController {
         network.getRequest(urlAsString: url, completionHandler: { success, statusCode, result in
             if !success {
                 DispatchQueue.main.async {
-                    let alert = UIAlertController(title: "Nastala chyba!", message: "Akcia nebola vykonaná!", preferredStyle: UIAlertController.Style.alert)
+                    let alert = UIAlertController(title: self.errorAction, message: self.errorActionString, preferredStyle: UIAlertController.Style.alert)
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                     Analytics.logEvent("error_trailingActionEmail", parameters: ["statusCode": statusCode])

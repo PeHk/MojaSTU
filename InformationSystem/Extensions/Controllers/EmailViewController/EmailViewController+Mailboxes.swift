@@ -15,7 +15,7 @@ extension EmailViewController {
     func addMailboxesButton() {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-        button.setTitle(" Priečinky", for: .normal)
+        button.setTitle(self.mailboxesString, for: .normal)
         button.sizeToFit()
         button.addTarget(self, action: #selector(openMailboxes), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)

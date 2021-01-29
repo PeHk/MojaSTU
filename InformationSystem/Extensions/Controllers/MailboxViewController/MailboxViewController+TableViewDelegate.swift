@@ -27,7 +27,7 @@ extension MailboxViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if mailboxArray != nil {
             let selected = mailboxArray![indexPath.row]
-            let currentURL = "https://is.stuba.sk/auth/posta/slozka.pl?;fid=\(selected.id);on=0;lang=sk"
+            let currentURL = "https://is.stuba.sk/auth/posta/slozka.pl?;fid=\(selected.id);on=0;lang=\(language)"
             let mailboxDict:[String: Any] = ["url": currentURL, "name": selected.name, "flag" : true]
             NotificationCenter.default.post(name: .mailboxChanged, object: nil, userInfo: mailboxDict)
             dismiss(animated: true, completion: nil)

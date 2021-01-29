@@ -31,7 +31,7 @@ extension AttachmentViewController: UITableViewDataSource, UITableViewDelegate {
                     self.loadingView.isHidden = true
                     self.indicator.stopAnimating()
                 } else {
-                    self.showAlertWindow(title: "Dokument nebol nájdený", message: "Nastala chyba pri vyhľadávaní dokumentu!")
+                    self.showAlertWindow(title: self.notFoundTitle, message: self.notFoundText)
                 }
             }
         }
