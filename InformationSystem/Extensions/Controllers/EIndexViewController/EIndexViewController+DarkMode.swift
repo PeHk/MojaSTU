@@ -26,7 +26,7 @@ extension EIndexViewController {
         refreshControl.tintColor = .black
         borderView.backgroundColor = UIColor.init(hex: "#E6E6E7FF")
         topBorderView.backgroundColor = UIColor.init(hex: "#E6E6E7FF")
-        refreshControl.attributedTitle = NSAttributedString(string: "Načítavam...", attributes: [NSAttributedString.Key.foregroundColor : UIColor.black])
+        refreshControl.attributedTitle = NSAttributedString(string: self.loadingString, attributes: [NSAttributedString.Key.foregroundColor : UIColor.black])
         tableView.reloadData()
     }
 //    MARK: Dark mode on
@@ -44,7 +44,7 @@ extension EIndexViewController {
         refreshControl.tintColor = .white
         borderView.backgroundColor = .darkGray
         topBorderView.backgroundColor = .darkGray
-        refreshControl.attributedTitle = NSAttributedString(string: "Načítavam...", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        refreshControl.attributedTitle = NSAttributedString(string: self.loadingString, attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
         tableView.reloadData()
     }
 }

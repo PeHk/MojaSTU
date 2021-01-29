@@ -21,7 +21,7 @@ extension EmailViewController {
         tableHeaderView.backgroundColor = .white
         tableFooterView.backgroundColor = .white
         refreshControl.tintColor = .black
-        refreshControl.attributedTitle = NSAttributedString(string: "Načítavam...", attributes: [NSAttributedString.Key.foregroundColor : UIColor.black])
+        refreshControl.attributedTitle = NSAttributedString(string: self.loadingString, attributes: [NSAttributedString.Key.foregroundColor : UIColor.black])
         noEmailsView.titleLabel.textColor = .black
         noEmailsView.messageLabel.textColor = .black
         noEmailsView.image = UIImage(named: "emptyFiles")
@@ -40,7 +40,7 @@ extension EmailViewController {
         tableHeaderView.backgroundColor = .black
         tableFooterView.backgroundColor = .black
         refreshControl.tintColor = .white
-        refreshControl.attributedTitle = NSAttributedString(string: "Načítavam...", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        refreshControl.attributedTitle = NSAttributedString(string: self.loadingString, attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
         noEmailsView.titleLabel.textColor = .white
         noEmailsView.messageLabel.textColor = .white
         noEmailsView.image = UIImage(named: "emptyFiles - white")

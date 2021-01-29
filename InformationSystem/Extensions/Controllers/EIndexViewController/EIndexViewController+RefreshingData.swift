@@ -31,7 +31,7 @@ extension EIndexViewController {
             }
         }
         else {
-            self.blockRefreshAlert(title: "Aktualizácia blokovaná", message: "Aktualizácia je možná len raz za 10 sekúnd!")
+            self.blockRefreshAlert(title: blockRefresh, message: blockRefreshString)
         }
     }
     

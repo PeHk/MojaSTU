@@ -22,6 +22,9 @@ extension EIndexViewController {
         cancelString = "Zrušiť"
         errorMessageFirst = "Počet pokusov na pripojenie: "
         errorMessageLast = "Tlačidlom zrušiť zavriete aplikáciu!"
+        loadingString = "Načítavam..."
+        blockRefresh = "Aktualizácia blokovaná"
+        blockRefreshString = "Aktualizácia je možná len raz za 10 sekúnd!"
         
         DispatchQueue.global().async {
             self.getSubjectTable(url: self.mainURL, urlForMarks: self.mainMarksURL)
@@ -52,6 +55,9 @@ extension EIndexViewController {
         cancelString = "Cancel"
         errorMessageFirst = "Connection attempts: "
         errorMessageLast = "Tap Cancel to close the application!"
+        loadingString = "Refreshing..."
+        blockRefresh = "Update blocked"
+        blockRefreshString = "The update is only possible once every 10 seconds!"
         
         DispatchQueue.global().async {
             self.getSubjectTable(url: self.mainURL, urlForMarks: self.mainMarksURL)

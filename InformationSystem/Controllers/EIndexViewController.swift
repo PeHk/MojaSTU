@@ -99,6 +99,9 @@ class EIndexViewController: UIViewController {
     var errorMessageFirst = "Počet pokusov na pripojenie: "
     var errorMessageLast = "Tlačidlom zrušiť zavriete aplikáciu!"
     var cancelString = "Zrušiť"
+    var loadingString = "Načítavam..."
+    var blockRefresh = "Aktualizácia blokovaná"
+    var blockRefreshString = "Aktualizácia je možná len raz za 5 sekúnd!"
     
     
 //    MARK: Constructors

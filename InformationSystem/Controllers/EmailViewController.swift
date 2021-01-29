@@ -75,6 +75,7 @@ class EmailViewController: UIViewController {
     var blockRefresh = "Aktualizácia blokovaná"
     var blockRefreshString = "Aktualizácia je možná len raz za 5 sekúnd!"
     var mailboxesString = " Prečinky"
+    var loadingString = "Načítavam..."
     
 //    MARK: Empty table
     lazy var noEmailsView = EmptyStateView(

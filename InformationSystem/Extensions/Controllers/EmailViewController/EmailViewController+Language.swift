@@ -14,7 +14,7 @@ extension EmailViewController {
         super.changeLanguageToSlovak(notification)
         emailsNameLabel.text = "Doručená pošta"
         emailsURL = "https://is.stuba.sk/auth/posta/slozka.pl?on=0;lang=sk"
-        refreshControl.attributedTitle = NSAttributedString(string: "Načítavam...")
+        loadingString = "Načítavam..."
         noEmailsView.messageText = "V tomto priečinku nemáš žiadne správy!"
         noEmailsView.titleText = "Žiadne správy"
         noEmails.reloadState()
@@ -36,7 +36,7 @@ extension EmailViewController {
         super.changeLanguageToEnglish(notification)
         emailsNameLabel.text = "Inbox"
         emailsURL = "https://is.stuba.sk/auth/posta/slozka.pl?on=0;lang=en"
-        refreshControl.attributedTitle = NSAttributedString(string: "Refreshing...")
+        loadingString = "Refreshing..."
         noEmailsView.messageText = "You have no messages in this folder!"
         noEmailsView.titleText = "No messages"
         noEmails.reloadState()

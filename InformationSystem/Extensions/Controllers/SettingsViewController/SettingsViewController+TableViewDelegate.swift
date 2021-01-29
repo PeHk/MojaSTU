@@ -103,6 +103,9 @@ extension SettingsViewController {
                     NotificationCenter.default.post(name: .languageEnglish, object: nil)
                     UserDefaults.standard.set("EN", forKey: "language")
                 }
+            } else {
+                NotificationCenter.default.post(name: .languageEnglish, object: nil)
+                UserDefaults.standard.set("EN", forKey: "language")
             }
         }
         else if indexPath.row == 5 {
