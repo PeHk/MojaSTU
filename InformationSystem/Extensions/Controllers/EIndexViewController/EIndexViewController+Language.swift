@@ -12,6 +12,7 @@ import UIKit
 extension EIndexViewController {
     override func changeLanguageToSlovak(_ notification: Notification) {
         super.changeLanguageToSlovak(notification)
+        print("Tu nemam byt")
         mainURL = "https://is.stuba.sk/auth/student/list.pl?;lang=sk"
         mainMarksURL = "https://is.stuba.sk/auth/student/pruchod_studiem.pl?;lang=sk"
         eIndexLabel.text = "Štúdium"

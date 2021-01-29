@@ -75,6 +75,14 @@ class EIndexViewController: UIViewController {
     @IBOutlet weak var subjectLabel: UILabel!
     @IBOutlet weak var topBorderView: UIView!
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        refreshControl.attributedTitle = NSAttributedString(string: loadingString)
+        
+        return refreshControl
+    }()
+    
     
 //    MARK: Constants
     let xPathSubject = "/html/body/div[2]/div/div/form/table[2]/tbody/"
@@ -109,14 +117,7 @@ class EIndexViewController: UIViewController {
     let htmlparser: HTMLParser = HTMLParser()
     let stringparser: StringParser = StringParser()
     let review: Review = Review()
-    
-    lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
-        let isDarkMode = UserDefaults.standard.bool(forKey: "darkModeEnabled")
-        
-        return refreshControl
-    }()
+
     
 //    MARK: Lifecycle
     override func viewDidLoad() {
@@ -153,6 +154,7 @@ class EIndexViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        checkObservers()
         self.tableView.reloadSections([0], with: UITableView.RowAnimation.automatic)
         Analytics.logEvent("tabEIndexLoaded", parameters: nil)
         review.incrementOpen()
@@ -162,6 +164,9 @@ class EIndexViewController: UIViewController {
     deinit {
         NotificationCenter.default.removeObserver(self, name: .darkModeEnabled, object: nil)
         NotificationCenter.default.removeObserver(self, name: .darkModeDisabled, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .languageSlovak, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .languageEnglish, object: nil)
+        
     }
     
 //  MARK: Error occurred

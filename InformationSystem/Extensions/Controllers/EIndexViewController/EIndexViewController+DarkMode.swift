@@ -14,6 +14,7 @@ extension EIndexViewController {
 //    MARK: Dark mode off
     override func darkModeDisabled(_ notification: Notification) {
         super.darkModeDisabled(notification)
+        refreshControl.attributedTitle = NSAttributedString(string: self.loadingString, attributes: [NSAttributedString.Key.foregroundColor : UIColor.black])
         placesView.backgroundColor = .white
         testsView.backgroundColor = .white
         tableView.backgroundColor = .white
@@ -26,12 +27,12 @@ extension EIndexViewController {
         refreshControl.tintColor = .black
         borderView.backgroundColor = UIColor.init(hex: "#E6E6E7FF")
         topBorderView.backgroundColor = UIColor.init(hex: "#E6E6E7FF")
-        refreshControl.attributedTitle = NSAttributedString(string: self.loadingString, attributes: [NSAttributedString.Key.foregroundColor : UIColor.black])
         tableView.reloadData()
     }
 //    MARK: Dark mode on
     override func darkModeEnabled(_ notification: Notification) {
         super.darkModeEnabled(notification)
+        refreshControl.attributedTitle = NSAttributedString(string: self.loadingString, attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
         placesView.backgroundColor = .black
         testsView.backgroundColor = .black
         tableView.backgroundColor = .black
@@ -44,7 +45,6 @@ extension EIndexViewController {
         refreshControl.tintColor = .white
         borderView.backgroundColor = .darkGray
         topBorderView.backgroundColor = .darkGray
-        refreshControl.attributedTitle = NSAttributedString(string: self.loadingString, attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
         tableView.reloadData()
     }
 }
