@@ -24,6 +24,8 @@ extension NewMessageViewController {
         conceptCancel = "Zahodiť koncept"
         incompleteTitle = "Nekompletná správa!"
         incompleteText = "Chcete odoslať správu bez predmetu alebo textu v tele?"
+        titleTextField.text = newMessageString
+        cancelButton.setTitle(cancelString, for: .normal)
     }
     
     override func changeLanguageToEnglish(_ notification: Notification) {
@@ -40,5 +42,7 @@ extension NewMessageViewController {
         conceptCancel = "Delete draft"
         incompleteTitle = "Incomplete message!"
         incompleteText = "Do you want to send the message without a subject or body text?"
+        titleTextField.text = newMessageString
+        cancelButton.setTitle(cancelString, for: .normal)
     }
 }

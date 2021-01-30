@@ -51,7 +51,7 @@ extension SettingsViewController {
                             DispatchQueue.main.async {
                                 Analytics.logEvent("wifiPasswordChanged", parameters: nil)
                                 self.indicator.stopAnimating()
-                                self.showAlertWindow(title: "Úspešne zmenené!", message: "Heslo bolo úspešne pregenerované!")
+                                self.showAlertWindow(title: self.passwordSuccessTitle, message: self.passwordSuccessMessage)
                                 NotificationCenter.default.post(name: .passwordChanged, object: nil)
                             }
                         }
@@ -67,14 +67,14 @@ extension SettingsViewController {
 //    MARK: Alert
     func showErrorWindow() {
         DispatchQueue.main.async {
-            self.showAlertWindow(title: "Chyba!", message: "Nastala nečakaná chyba! Heslo nebolo pregenerované!")
+            self.showAlertWindow(title: self.passwordFailureTitle, message: self.passwordFailureMessage)
         }
     }
 //    MARK: Notification
     func setNotification(password: String) -> Void {
         let manager = LocalNotificationManager()
         manager.requestPermission()
-        manager.addNotification(title: "Vygenerované nové heslo", body:"Nové heslo do univerzitnej siete: \(password)")
+        manager.addNotification(title: self.notificationTitle, body: self.notificationMessage + password )
         manager.scheduleNotifications()
     }
 }

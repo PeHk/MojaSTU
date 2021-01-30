@@ -56,7 +56,12 @@ class SettingsViewController: UITableViewController {
     var cancelString = "Zrušiť"
     var titleCareful = "Upozornenie"
     var messageString = "Pokračovaním súhlasíte, že aplikácia bude používať internetové pripojenie na pozadí."
-    
+    var notificationTitle = "Vygenerované nové heslo"
+    var notificationMessage = "Nové heslo do univerzitnej siete: "
+    var passwordSuccessTitle = "Úspešne zmenené!"
+    var passwordSuccessMessage = "Heslo bolo úspešne pregenerované!"
+    var passwordFailureTitle = "Chyba!"
+    var passwordFailureMessage = "Nastala nečakaná chyba! Heslo nebolo pregenerované!"
 
 //    MARK: Lifecycle
     override func viewDidLoad() {

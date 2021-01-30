@@ -76,6 +76,7 @@ class EmailViewController: UIViewController {
     var blockRefreshString = "Aktualizácia je možná len raz za 5 sekúnd!"
     var mailboxesString = " Prečinky"
     var loadingString = "Načítavam..."
+    var flag = false
     
 //    MARK: Empty table
     lazy var noEmailsView = EmptyStateView(
@@ -130,6 +131,7 @@ class EmailViewController: UIViewController {
         
         initObservers()
         checkObservers()
+        flag = false
         
         emailsNameLabel.text = mailboxName
     
@@ -161,6 +163,7 @@ class EmailViewController: UIViewController {
                 }
                 self.noEmails.reloadState()
                 Analytics.logEvent("email_Loaded", parameters: nil)
+                self.flag = true
             }
         }
     }

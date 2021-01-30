@@ -17,6 +17,7 @@ extension AttachmentViewController {
         notFoundText = "Nastala chyba pri vyhľadávaní dokumentu!"
         errorTitle = "Niečo sa pokazilo!"
         errorText = "Prosím skúste znova!"
+        attachmentLabel.text = "Prílohy"
         
     }
     
@@ -27,5 +28,6 @@ extension AttachmentViewController {
         notFoundText = "An error occurred while searching for the document!"
         errorTitle = "Something went wrong!"
         errorText = "Please try again!"
+        attachmentLabel.text = "Attachments"
     }
 }

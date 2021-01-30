@@ -151,7 +151,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzg-Im-9Fg">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="45"/>
                                                 <string key="text">© 2021
-Moja STU</string>
+Peter Hlavatík</string>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="9"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import FirebaseAnalytics
 
 extension LoginViewController {
     override func changeLanguageToSlovak(_ notification: Notification) {
@@ -36,9 +37,11 @@ extension LoginViewController {
         if currentLanguage == nil || currentLanguage as! String == "SK" {
             UserDefaults.standard.set("EN", forKey: "language")
             NotificationCenter.default.post(name: .languageEnglish, object: nil)
+            Analytics.logEvent("language_EN", parameters: nil)
         } else {
             UserDefaults.standard.set("SK", forKey: "language")
             NotificationCenter.default.post(name: .languageSlovak, object: nil)
+            Analytics.logEvent("language_SK", parameters: nil)
         }
     }
 

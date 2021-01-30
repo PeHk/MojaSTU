@@ -26,7 +26,12 @@ extension SettingsViewController {
         cancelString = "Zrušiť"
         titleCareful = "Upozornenie"
         messageString = "Pokračovaním súhlasíte, že aplikácia bude používať internetové pripojenie na pozadí."
-        
+        notificationTitle = "Vygenerované nové heslo"
+        notificationMessage = "Nové heslo do univerzitnej siete: "
+        passwordSuccessTitle = "Úspešne zmenené!"
+        passwordSuccessMessage = "Heslo bolo úspešne pregenerované!"
+        passwordFailureTitle = "Chyba!"
+        passwordFailureMessage = "Nastala nečakaná chyba! Heslo nebolo pregenerované!"
     }
     
     override func changeLanguageToEnglish(_ notification: Notification) {
@@ -45,5 +50,11 @@ extension SettingsViewController {
         cancelString = "Cancel"
         titleCareful = "Warning"
         messageString = "By continuing, you agree that the application will use the Internet connection in the background."
+        notificationTitle = "New password generated"
+        notificationMessage = "New university password: "
+        passwordSuccessMessage = "New password successfully generated!"
+        passwordSuccessTitle = "Successfully changed!"
+        passwordFailureTitle = "Error!"
+        passwordFailureMessage = "An unexpected error occurred! New password not generated!"
     }
 }

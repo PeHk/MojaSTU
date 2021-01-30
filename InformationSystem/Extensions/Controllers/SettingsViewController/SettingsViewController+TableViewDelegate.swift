@@ -74,13 +74,13 @@ extension SettingsViewController {
                 UserDefaults.standard.set(true, forKey: "emailControlDisabled")
                 Analytics.logEvent("emailControlDisabled", parameters: nil)
             } else {
-                let alert = UIAlertController(title: "Upozornenie", message: "Pokračovaním súhlasíte, že aplikácia bude používať internetové pripojenie na pozadí.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Pokračovať", style: .default, handler: { action in
+                let alert = UIAlertController(title: self.titleCareful, message: self.messageString, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: self.continueString, style: .default, handler: { action in
                     self.emailControlSwitch.setOn(true, animated: true)
                     UserDefaults.standard.set(false, forKey: "emailControlDisabled")
                     Analytics.logEvent("emailControlEnabled", parameters: nil)
                 }))
-                alert.addAction(UIAlertAction(title: "Zrušiť", style: .destructive, handler: {action in
+                alert.addAction(UIAlertAction(title: self.cancelString, style: .destructive, handler: {action in
                     self.emailControlSwitch.setOn(false, animated: true)
                 }))
                 
@@ -99,13 +99,16 @@ extension SettingsViewController {
                 if currentLanguage as! String == "EN" {
                     UserDefaults.standard.set("SK", forKey: "language")
                     NotificationCenter.default.post(name: .languageSlovak, object: nil)
+                    Analytics.logEvent("language_SK", parameters: nil)
                 } else {
                     NotificationCenter.default.post(name: .languageEnglish, object: nil)
                     UserDefaults.standard.set("EN", forKey: "language")
+                    Analytics.logEvent("language_EN", parameters: nil)
                 }
             } else {
                 NotificationCenter.default.post(name: .languageEnglish, object: nil)
                 UserDefaults.standard.set("EN", forKey: "language")
+                Analytics.logEvent("language_EN", parameters: nil)
             }
         }
         else if indexPath.row == 5 {

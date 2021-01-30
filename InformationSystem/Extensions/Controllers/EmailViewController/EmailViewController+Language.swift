@@ -30,6 +30,9 @@ extension EmailViewController {
         blockRefresh = "Aktualizácia blokovaná"
         blockRefreshString = "Aktualizácia je možná len raz za 5 sekúnd!"
         mailboxesString = " Prečinky"
+        if flag {
+            addMailboxesButton()
+        }
     }
     
     override func changeLanguageToEnglish(_ notification: Notification) {
@@ -52,5 +55,8 @@ extension EmailViewController {
         blockRefresh = "Update blocked"
         blockRefreshString = "The update is only possible once every 5 seconds!"
         mailboxesString = " Mailboxes"
+        if flag {
+            addMailboxesButton()
+        }
     }
 }

@@ -189,18 +189,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                     if (Int(numberOfEmails) ?? 0 > 0) && (Int(oldNumber) != Int(numberOfEmails)) {
                                         UserDefaults.standard.set(numberOfEmails, forKey: "countOfEmails")
                                         
-//                                        TODO: Set tab badge, set refresh on page
                                         UserDefaults.standard.set(true, forKey: "email_refresh")
                                     
-                                        
-                                        if (numberOfEmails == "1") {
-                                            self.setNotification(title: "Psst.. 🤫 V schránke máš nové správy 📬", body: "\(numberOfEmails) neprečítaná správa")
-                                        } else if numberOfEmails == "2" || numberOfEmails == "3" || numberOfEmails == "4" {
-                                            self.setNotification(title: "Psst.. 🤫 V schránke máš nové správy 📬", body: "\(numberOfEmails) neprečítané správy")
+                                        let currentLanguage = UserDefaults.standard.value(forKey: "language")
+                                        if currentLanguage != nil && currentLanguage as! String == "EN" {
+                                            if (numberOfEmails == "1") {
+                                                self.setNotification(title: "Pssh.. 🤫 You have new messages 📬", body: "\(numberOfEmails) unread message")
+                                            } else {
+                                                self.setNotification(title: "Pssh.. 🤫 You have new messages 📬", body: "\(numberOfEmails) unread messages")
+                                            }
                                         } else {
-                                            self.setNotification(title: "Psst.. 🤫 V schránke máš nové správy 📬", body: "\(numberOfEmails) neprečítaných správ")
+                                            if (numberOfEmails == "1") {
+                                                self.setNotification(title: "Psst.. 🤫 V schránke máš nové správy 📬", body: "\(numberOfEmails) neprečítaná správa")
+                                            } else if numberOfEmails == "2" || numberOfEmails == "3" || numberOfEmails == "4" {
+                                                self.setNotification(title: "Psst.. 🤫 V schránke máš nové správy 📬", body: "\(numberOfEmails) neprečítané správy")
+                                            } else {
+                                                self.setNotification(title: "Psst.. 🤫 V schránke máš nové správy 📬", body: "\(numberOfEmails) neprečítaných správ")
+                                            }
                                         }
-                                        
                                     }
                                     DispatchQueue.main.async {
                                         application.applicationIconBadgeNumber = Int(numberOfEmails) ?? 0
