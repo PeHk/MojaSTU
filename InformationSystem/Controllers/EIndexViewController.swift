@@ -110,6 +110,7 @@ class EIndexViewController: UIViewController {
     var loadingString = "Načítavam..."
     var blockRefresh = "Aktualizácia blokovaná"
     var blockRefreshString = "Aktualizácia je možná len raz za 5 sekúnd!"
+    var selectedSemester = String()
     
     
 //    MARK: Constructors
@@ -141,6 +142,7 @@ class EIndexViewController: UIViewController {
                 self.arraySemester = Semester.sharedInstance.arrayOfSemesters
                 self.arraySubjects = EIndexSubject.sharedInstance.arrayOfSubjects
                 self.actualSemester = Semester.sharedInstance.actualSemester
+                self.selectedSemester = self.actualSemester
                 
                 Documents.sharedInstance.arrayOfDocuments = EIndexSubject.sharedInstance.arrayOfSubjects
                 DispatchQueue.main.async {

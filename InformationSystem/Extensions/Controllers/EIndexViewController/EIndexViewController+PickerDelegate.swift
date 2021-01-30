@@ -30,6 +30,7 @@ extension EIndexViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         semesterLabel.text = arraySemester[row].name
+        selectedSemester = arraySemester[row].name
         actualIDOfSemester = arraySemester[row].id
         actualIDOfStudy = arraySemester[row].studiesId
         
